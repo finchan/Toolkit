@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xavier.toolkit.mapper.SysUser1Mapper">
+  <resultMap id="BaseResultMap" type="com.xavier.toolkit.entity.SysUser1">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_PASSWORD" jdbcType="VARCHAR" property="userPassword" />
+    <result column="USER_EMAIL" jdbcType="VARCHAR" property="userEmail" />
+    <result column="USER_INFO" jdbcType="VARCHAR" property="userInfo" />
+    <result column="HEAD_IMG" jdbcType="BLOB" property="headImg" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, USER_NAME, USER_PASSWORD, USER_EMAIL, USER_INFO, HEAD_IMG, CREATE_TIME
+  </sql>
+  <insert id="insertUserViaSEQ">
+    <selectKey keyProperty="id" keyColumn="ID" resultType="java.lang.Integer" order="BEFORE">
+      SELECT USER_SEQ.nextval FROM DUAL
+    </selectKey>
+    INSERT INTO SYS_USER(
+        ID, USER_NAME, USER_PASSWORD, USER_EMAIL, USER_INFO, HEAD_IMG, CREATE_TIME
+    ) VALUES (
+        #{id}, #{userName}, #{userPassword}, #{userEmail}, #{userInfo}, #{headImg, jdbcType=BLOB}, #{createTime, jdbcType=TIMESTAMP}
+    )
+  </insert>
+  <select id="selectAllSysUsers" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"></include>
+    FROM SYS_USER
+  </select>
+  <select id="selectAllExtendedSysUser" resultType="com.xavier.toolkit.entity.SysUser1Extend">
+        SELECT USER_NAME, ROLE_NAME
+        FROM SYS_USER A
+        INNER JOIN SYS_USER_ROLE B ON A.ID = B.USER_ID
+        INNER JOIN SYS_ROLE C ON B.ROLE_ID = C.ID
+        WHERE A.ID = #{id}
+  </select>
+  <select id="selectSimpleAssociation" resultType="com.xavier.toolkit.entity.SysUserSimpleAssociation">
+      SELECT
+        USER_NAME, ROLE_NAME AS "role.roleName"
+      FROM SYS_USER A
+      INNER JOIN SYS_USER_ROLE B ON A.ID = B.USER_ID
+      INNER JOIN SYS_ROLE C ON B.ROLE_ID = C.ID
+      WHERE A.ID = #{id}
+  </select>
+  <update id="updateUserById">
+      update SYS_USER
+      set USER_NAME = #{userName},
+      HEAD_IMG = #{headImg, jdbcType=BLOB},
+      CREATE_TIME = #{createTime, jdbcType=TIMESTAMP}
+      where ID = #{id}
+  </update>
+  <delete id="deleteUserById">
+      delete from sys_user
+      where id="#{id, jdbcType=INTEGER}"
+  </delete>
+
+</mapper>
