@@ -70,7 +70,7 @@ public class ServiceTest {
 
     @Test
     public void testDeleteUserById() {
-        Integer affectedRows = sysUser1Service.deleteUserById(7);
+        Integer affectedRows = sysUser1Service.deleteUserById(4);
         System.out.println(affectedRows);
     }
 }

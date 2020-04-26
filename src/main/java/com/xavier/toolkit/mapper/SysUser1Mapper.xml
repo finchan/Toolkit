@@ -51,7 +51,7 @@
   </update>
   <delete id="deleteUserById">
       delete from sys_user
-      where id="#{id, jdbcType=INTEGER}"
+      where id = #{id}
   </delete>
 
 </mapper>
