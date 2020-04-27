@@ -1,5 +1,6 @@
 package com.xavier.toolkit.service;
 
+import com.xavier.toolkit.entity.SysRole1;
 import com.xavier.toolkit.entity.SysUser1;
 import com.xavier.toolkit.entity.SysUser1Extend;
 import com.xavier.toolkit.entity.SysUserSimpleAssociation;
@@ -12,13 +13,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @MapperScan({"com.xavier.toolkit.mapper", "com.xavier.toolkit.dao"})
 public class ServiceTest {
     @Autowired SysUser1Service  sysUser1Service;
+    @Autowired SysRole1Service sysRole1Service;
 
     @Test
     public void testSequenceInsert() {
@@ -72,5 +76,24 @@ public class ServiceTest {
     public void testDeleteUserById() {
         Integer affectedRows = sysUser1Service.deleteUserById(4);
         System.out.println(affectedRows);
+    }
+
+    @Test
+    public void testMultipleParametersWithAnnotation() {
+        List<SysRole1> roles = sysRole1Service.selectRoleByUserIdAndRoleEnabled(1,1);
+        for(SysRole1 role: roles) {
+            System.out.println(role.toString());
+        }
+    }
+
+    @Test
+    public void testMultipleParametersWithMap() {
+        Map userRole = new HashMap();
+        userRole.put("id", 1);
+        userRole.put("enabled", 1);
+        List<SysRole1> roles = sysRole1Service.selectRoleByUserIdAndRoleEnabledMap(userRole);
+        for(SysRole1 role: roles) {
+            System.out.println(role.toString());
+        }
     }
 }

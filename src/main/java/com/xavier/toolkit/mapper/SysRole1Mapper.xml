@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xavier.toolkit.mapper.SysRole1Mapper">
+  <resultMap id="BaseResultMap" type="com.xavier.toolkit.entity.SysRole1">
+    <!--@mbg.generated-->
+    <!--@Table SYS_ROLE-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName" />
+    <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
+    <result column="CREATE_BY" jdbcType="DECIMAL" property="createBy" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, ROLE_NAME, ENABLED, CREATE_BY, CREATE_TIME
+  </sql>
+  <select id="selectRoleByUserIdAndRoleEnabled" resultMap="BaseResultMap">
+    select r.id, r.ROLE_NAME, r.ENABLED, r.CREATE_BY, r.CREATE_TIME
+    from sys_user u
+    inner join sys_user_role ur on u.id = ur.USER_ID
+    inner join sys_role r on ur.ROLE_ID = r.id
+    where u.id = #{id} and r.enabled = #{enabled}
+  </select>
+  <select id="selectRoleByUserIdAndRoleEnabledMap" resultMap="BaseResultMap">
+    select r.id, r.ROLE_NAME, r.ENABLED, r.CREATE_BY, r.CREATE_TIME
+    from sys_user u
+    inner join sys_user_role ur on u.id = ur.USER_ID
+    inner join sys_role r on ur.ROLE_ID = r.id
+    where u.id = #{id} and r.enabled = #{enabled}
+  </select>
+
+</mapper>
