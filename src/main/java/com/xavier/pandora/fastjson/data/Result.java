@@ -8,7 +8,7 @@ public class Result {
     private String key;
     private String tableName;
     private String className;
-    private Map<String, List<Column>> column ;
+    private List<ColumnBean> column ;
 
     public String getId() {
         return id;
@@ -42,11 +42,11 @@ public class Result {
         this.className = className;
     }
 
-    public Map<String, List<Column>> getColumn() {
+    public List<ColumnBean> getColumn() {
         return column;
     }
 
-    public void setColumn(Map<String, List<Column>> column) {
+    public void setColumn(List<ColumnBean> column) {
         this.column = column;
     }
 }

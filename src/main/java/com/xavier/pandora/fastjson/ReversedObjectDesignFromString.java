@@ -110,13 +110,8 @@ public class ReversedObjectDesignFromString {
                 "\t\t]\n" +
                 "\t}\n" +
                 "]";
-//        List<Result> results = JSON.parseArray(objString, Result.class);
-//        System.out.println(results);
-//        System.out.println(JSON.toJSONString(results, true));
-        String obj2 = "{\"id\":\"user_list\",\"key\":\"id\",\"tableName\":\"用户列表\",\"className\":\"cn.dmego.domain.User\",\"column\":[{\"key\":\"rowIndex\",\"header\":\"序号\",\"width\":\"50\",\"allowSort\":\"false\"},{\"key\":\"id\",\"header\":\"id\",\"hidden\":\"true\"},{\"key\":\"name\",\"header\":\"姓名\",\"width\":\"100\",\"allowSort\":\"true\"}]}";
-//        JSONObject obj = JSON.parseObject(obj2);
-//        List<Result> obj = JSON.parseArray(objString, Result.class);
-        Result obj = JSON.parseObject(obj2, Result.class);
-        System.out.println(obj);
+        List<Result> results = JSON.parseArray(objString, Result.class);
+        System.out.println(results);
+        System.out.println(JSON.toJSONString(results, true));
     }
 }

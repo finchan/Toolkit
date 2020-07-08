@@ -1,13 +1,13 @@
 package com.xavier.pandora.fastjson.data;
 
-public class Column {
+public class ColumnBean {
     private String key;
     private String header;
     private String width;
     private String allowSort;
     private String hidden;
 
-    public Column(String key, String header, String width, String allowSort, String hidden) {
+    public ColumnBean(String key, String header, String width, String allowSort, String hidden) {
         this.key = key;
         this.header = header;
         this.width = width;
