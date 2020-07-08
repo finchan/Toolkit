@@ -1,0 +1,24 @@
+fastjson 简介
+在日志解析,前后端数据传输交互中,经常会遇到字符串(String)与json,XML等格式相互转换与解析，
+其中json以跨语言，跨前后端的优点在开发中被频繁使用，基本上可以说是标准的数据交换格式。
+fastjson是一个java语言编写的高性能且功能完善的JSON库，它采用一种“假定有序快速匹配”的算法，
+把JSON Parse 的性能提升到了极致。它的接口简单易用，已经被广泛使用在缓存序列化，协议交互，Web输出等各种应用场景中。
+
+fastjson 常用 API
+fastjson API 入口类是com.alibaba.fastjson.JSON,常用的序列化操作都可以在JSON类上的静态方法直接完成。
+
+public static final Object parse(String text); // 把JSON文本parse为JSONObject或者JSONArray
+public static final JSONObject parseObject(String text)； // 把JSON文本parse成JSONObject
+public static final <T> T parseObject(String text, Class<T> clazz); // 把JSON文本parse为JavaBean
+public static final JSONArray parseArray(String text); // 把JSON文本parse成JSONArray
+public static final <T> List<T> parseArray(String text, Class<T> clazz); //把JSON文本parse成JavaBean集合
+public static final String toJSONString(Object object); // 将JavaBean序列化为JSON文本
+public static final String toJSONString(Object object, boolean prettyFormat); // 将JavaBean序列化为带格式的JSON文本
+public static final Object toJSON(Object javaObject); //将JavaBean转换为JSONObject或者JSONArray。
+使用方法举例
+//将JSON文本转换为java对象
+import com.alibaba.fastjson.JSON;
+Model model = JSON.parseObject(jsonStr, Model.class);
+有关类库的一些说明
+JSONArray : 相当于List<Object>
+JSONObject: 相当于Map<String,Object>

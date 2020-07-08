@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xavier.toolkit.mapper.EmpMapper">
+  <resultMap id="BaseResultMap" type="com.xavier.toolkit.entity.Emp">
+    <id column="EMPLOYEE_ID" jdbcType="INTEGER" property="employeeId" />
+    <result column="FIRST_NAME" jdbcType="VARCHAR" property="firstName" />
+    <result column="LAST_NAME" jdbcType="VARCHAR" property="lastName" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="PHONE_NUMBER" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="HIRE_DATE" jdbcType="DATE" property="hireDate" />
+    <result column="SALARY"  jdbcType="NUMERIC" property="salary" />
+    <result column="COMMISSION_PCT"  jdbcType="NUMERIC"  property="commissionPct" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, SALARY, COMMISSION_PCT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from EMP
+    where EMPLOYEE_ID = #{employeeId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from EMP
+    where EMPLOYEE_ID = #{employeeId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.xavier.toolkit.entity.Emp">
+    <!--@mbg.generated-->
+    insert into EMP (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, 
+      EMAIL, PHONE_NUMBER, HIRE_DATE, 
+      SALARY, COMMISSION_PCT)
+    values (#{employeeId,jdbcType=DECIMAL}, #{firstName,jdbcType=VARCHAR}, #{lastName,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, #{hireDate,jdbcType=TIMESTAMP}, 
+      #{salary,jdbcType=DECIMAL}, #{commissionPct,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xavier.toolkit.entity.Emp">
+    <!--@mbg.generated-->
+    insert into EMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="employeeId != null">
+        EMPLOYEE_ID,
+      </if>
+      <if test="firstName != null">
+        FIRST_NAME,
+      </if>
+      <if test="lastName != null">
+        LAST_NAME,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="phoneNumber != null">
+        PHONE_NUMBER,
+      </if>
+      <if test="hireDate != null">
+        HIRE_DATE,
+      </if>
+      <if test="salary != null">
+        SALARY,
+      </if>
+      <if test="commissionPct != null">
+        COMMISSION_PCT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="employeeId != null">
+        #{employeeId,jdbcType=DECIMAL},
+      </if>
+      <if test="firstName != null">
+        #{firstName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastName != null">
+        #{lastName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="hireDate != null">
+        #{hireDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=DECIMAL},
+      </if>
+      <if test="commissionPct != null">
+        #{commissionPct,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xavier.toolkit.entity.Emp">
+    <!--@mbg.generated-->
+    update EMP
+    <set>
+      <if test="firstName != null">
+        FIRST_NAME = #{firstName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastName != null">
+        LAST_NAME = #{lastName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        PHONE_NUMBER = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="hireDate != null">
+        HIRE_DATE = #{hireDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salary != null">
+        SALARY = #{salary,jdbcType=DECIMAL},
+      </if>
+      <if test="commissionPct != null">
+        COMMISSION_PCT = #{commissionPct,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where EMPLOYEE_ID = #{employeeId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xavier.toolkit.entity.Emp">
+    <!--@mbg.generated-->
+    update EMP
+    set FIRST_NAME = #{firstName,jdbcType=VARCHAR},
+      LAST_NAME = #{lastName,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      PHONE_NUMBER = #{phoneNumber,jdbcType=VARCHAR},
+      HIRE_DATE = #{hireDate,jdbcType=TIMESTAMP},
+      SALARY = #{salary,jdbcType=DECIMAL},
+      COMMISSION_PCT = #{commissionPct,jdbcType=DECIMAL}
+    where EMPLOYEE_ID = #{employeeId,jdbcType=DECIMAL}
+  </update>
+  <insert id="batchInsert" >
+    insert all
+    <foreach collection="empList" item="emp">
+       into EMP (EMPLOYEE_ID,FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, SALARY, COMMISSION_PCT) values (
+          #{emp.employeeId},
+          #{emp.firstName},
+          #{emp.lastName},
+          #{emp.email},
+          #{emp.phoneNumber},
+          #{emp.hireDate, jdbcType=DATE},
+          #{emp.salary,  jdbcType=NUMERIC},
+          #{emp.commissionPct ,jdbcType=NUMERIC}
+      )
+    </foreach>
+    SELECT 1 FROM DUAL
+  </insert>
+</mapper>

@@ -1,21 +1,19 @@
 package com.xavier.toolkit.service;
 
-import com.xavier.toolkit.entity.SysRole1;
-import com.xavier.toolkit.entity.SysUser1;
-import com.xavier.toolkit.entity.SysUser1Extend;
-import com.xavier.toolkit.entity.SysUserSimpleAssociation;
+import com.xavier.toolkit.entity.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -23,6 +21,7 @@ import java.util.Map;
 public class ServiceTest {
     @Autowired SysUser1Service  sysUser1Service;
     @Autowired SysRole1Service sysRole1Service;
+    @Autowired EmpService empService;
 
     @Test
     public void testSequenceInsert() {
@@ -94,6 +93,66 @@ public class ServiceTest {
         List<SysRole1> roles = sysRole1Service.selectRoleByUserIdAndRoleEnabledMap(userRole);
         for(SysRole1 role: roles) {
             System.out.println(role.toString());
+        }
+    }
+
+    @Test
+    public void testSelectAnnotation() {
+        SysRole1 role = sysRole1Service.selectById(1);
+        Assert.assertEquals("Administrator", role.getRoleName());
+    }
+
+    @Test
+    public void testResults() {
+        SysRole1 role = sysRole1Service.selectById2(1);
+        Assert.assertEquals("Administrator", role.getRoleName());
+    }
+
+    @Test
+    public void batchInsertTest() {
+        List<Emp> empList = new ArrayList<Emp>();
+        for(int i=0; i< 5; i++){
+            Emp emp = new Emp();
+            emp.setEmployeeId(i);
+            emp.setEmail(i +"");
+            emp.setFirstName(i +"");
+            emp.setLastName(i+"");
+            emp.setPhoneNumber(i+"");
+            emp.setHireDate(new Date());
+            emp.setSalary((double)i);
+            emp.setCommissionPct(new BigDecimal(i).divide(new BigDecimal(10*(i/10+1))));
+            empList.add(emp);
+        }
+        empService.batchInsert(empList);
+    }
+
+    @Test
+    public void batchInsertEnhancementTest() {
+        List<Emp> empList = new ArrayList<Emp>();
+        for(int i=0; i< 5; i++){
+            Emp emp = new Emp();
+            emp.setEmployeeId(i);
+            emp.setEmail(i +"");
+            emp.setFirstName(i +"");
+            emp.setLastName(i+"");
+            emp.setPhoneNumber(i+"");
+            emp.setHireDate(new Date());
+            emp.setSalary((double)i);
+            emp.setCommissionPct(new BigDecimal(i).divide(new BigDecimal(10*(i/10+1))));
+            empList.add(emp);
+        }
+        for(Emp emp : empList) {
+            try{
+                empService.insertSelective(emp);
+                System.out.println("INSERT SUCCESSFULLY - "  + emp);
+            } catch (Exception ex) {
+                String err = ((SQLIntegrityConstraintViolationException)((DuplicateKeyException)ex).getCause()).getMessage();
+                if(err.contains("ORA-00001")) {
+                    System.out.println("INSERT FAILED - 主键冲突 - " + "\t" + emp);
+                } else{
+                    System.out.println("INSERT FAILED - 其它错误 - " + "\t" + emp);
+                }
+            }
         }
     }
 }
