@@ -1,8 +1,12 @@
-fastjson 简介
-在日志解析,前后端数据传输交互中,经常会遇到字符串(String)与json,XML等格式相互转换与解析，
-其中json以跨语言，跨前后端的优点在开发中被频繁使用，基本上可以说是标准的数据交换格式。
-fastjson是一个java语言编写的高性能且功能完善的JSON库，它采用一种“假定有序快速匹配”的算法，
-把JSON Parse 的性能提升到了极致。它的接口简单易用，已经被广泛使用在缓存序列化，协议交互，Web输出等各种应用场景中。
+1. 什么是fastjson?
+fastjson是阿里巴巴的开源JSON解析库，它可以解析JSON格式的字符串，支持将Java Bean序列化为JSON字符串，也可以从JSON字符串反序列化到JavaBean。
+
+2. Fastjson使用场景
+Fastjson已经被广泛使用在各种场景，包括cache存储、RPC通讯、MQ通讯、网络协议通讯、Android客户端、Ajax服务器处理程序等等。
+
+3. 使用简单
+String text = JSON.toJSONString(obj); //序列化
+VO vo = JSON.parseObject("{...}", VO.class); //反序列化
 
 fastjson 常用 API
 fastjson API 入口类是com.alibaba.fastjson.JSON,常用的序列化操作都可以在JSON类上的静态方法直接完成。
