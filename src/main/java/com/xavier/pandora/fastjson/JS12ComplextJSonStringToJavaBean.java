@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.xavier.pandora.fastjson.data.Teacher;
 
-public class ComplextJSonStringToJavaBean {
+public class JS12ComplextJSonStringToJavaBean {
     public static void main(String[] args) {
         String COMPLEX_JSON_STR = "{\"teacherName\":\"crystall\",\"teacherAge\":27,\"course\":{\"courseName\":\"english\",\"code\":1270},\"students\":[{\"studentName\":\"lily\",\"studentAge\":12},{\"studentName\":\"lucy\",\"studentAge\":15}]}";
         //1. TypeReference

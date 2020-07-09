@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.Iterator;
 
-public class JSonStringToJSObject {
+public class JS07JSonStringToJSObject {
     public static void main(String[] args) {
         String COMPLEX_JSON_STR = "{\"teacherName\":\"crystall\",\"teacherAge\":27,\"course\":{\"courseName\":\"english\",\"code\":1270},\"students\":[{\"studentName\":\"lily\",\"studentAge\":12},{\"studentName\":\"lucy\",\"studentAge\":15}]}";
         JSONObject jsonObject = JSON.parseObject(COMPLEX_JSON_STR);

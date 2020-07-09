@@ -8,7 +8,7 @@ import org.springframework.boot.jackson.JsonObjectDeserializer;
 
 import java.util.List;
 
-public class ReversedObjectDesignFromString {
+public class JS13ReversedObjectDesignFromString {
     /**
      * [{
      * 		"id": "user_list",

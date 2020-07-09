@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.Iterator;
 
-public class TraverseJSONArray {
+public class JS09TraverseJSONArray {
     public static void main(String[] args) {
         String  JSON_ARRAY_STR = "[{\"studentName\":\"lily\",\"studentAge\":12}, {\"studentName\":\"lucy\",\"studentAge\":15}]";
         JSONArray jsonArray = JSON.parseArray(JSON_ARRAY_STR);

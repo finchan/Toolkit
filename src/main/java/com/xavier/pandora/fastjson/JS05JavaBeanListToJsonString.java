@@ -6,7 +6,7 @@ import com.xavier.pandora.fastjson.data.Student;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JavaBeanListToJsonString {
+public class JS05JavaBeanListToJsonString {
     public static void main(String[] args){
         Student student = new Student("lily", 12);
         Student student1 = new Student("lucy", 13);

@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.xavier.pandora.fastjson.data.Student;
 
-public class StringToJavaBean {
+public class JS10StringToJavaBean {
     public static void main(String[] args) {
         String  JSON_OBJ_STR = "{\"studentName\":\"lily\",\"studentAge\":12}";
         JSONObject jsonObject = JSON.parseObject(JSON_OBJ_STR);

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class StringToJavaBeanList {
+public class JS11StringToJavaBeanList {
     public static void main(String[] args) {
         String JSON_ARRAY_STR = "[{\"studentName\":\"lily\",\"studentAge\":12}, {\"studentName\":\"lucy\",\"studentAge\":15}]";
         JSONArray jsonArray = JSON.parseArray(JSON_ARRAY_STR);

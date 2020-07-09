@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
-public class StringToJSObject {
+public class JS08StringToJSObject {
     public static void main(String[] args) {
         String  JSON_OBJ_STR = "              {\"studentName\":\"lily\",\"studentAge\":12}         ";
         String  JSON_ARRAY_STR = "[{\"studentName\":\"lily\",\"studentAge\":12}, {\"studentName\":\"lucy\",\"studentAge\":15}]";
