@@ -18,7 +18,7 @@ JS07JSonStringToJSObject
 JS08StringToJSObject
 JS09TraverseJSONArray
 --------------------------------------------------------------------------------
-<<<<<JSon String ---> JSONObject || JSONArray>>>>>
+<<<<<JSon String ---> Java Bean || Java Bean List || Complex Java Bean>>>
 JS10StringToJavaBean
 JS11StringToJavaBeanList
 JS12ComplextJSonStringToJavaBean
