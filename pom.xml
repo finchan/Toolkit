@@ -16,6 +16,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <slf4j.version>1.7.21</slf4j.version>
+        <logback.version>1.1.7</logback.version>
     </properties>
 
     <dependencies>
@@ -34,8 +36,7 @@
 <!--            <artifactId>ojdbc6</artifactId>-->
 <!--            <version>11.2.0.1.0</version>-->
 <!--        </dependency>-->
-
-        <!--Oracle内部依赖-->
+        <!--Oracle内部依赖 begins-->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
@@ -43,6 +44,7 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/lib/ojdbc6.jar</systemPath>
         </dependency>
+        <!--Oracle内部依赖 ends-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -73,6 +75,55 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--logback begins-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <!--logback ends-->
+        <!--activemq begins-->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-broker</artifactId>
+            <version>5.14.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-pool</artifactId>
+            <version>5.14.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-spring</artifactId>
+            <version>5.14.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>artemis-jms-client</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+            <version>4.0.3.RELEASE</version>
+        </dependency>
+        <!--activemq ends-->
     </dependencies>
 
     <build>
