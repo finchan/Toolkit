@@ -1,4 +1,4 @@
-package com.xavier.pandora.activemq.amq01pubsub;
+package com.xavier.pandora.activemq.amq06http;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQMapMessage;
@@ -9,6 +9,9 @@ import javax.jms.*;
 import java.util.Hashtable;
 import java.util.Map;
 
+/**
+ * <transportConnector name="http" uri="http://0.0.0.0:61620?trace=true"/>
+ */
 public class Publisher {
     private static Logger log = LoggerFactory.getLogger(Publisher.class);
 
@@ -17,7 +20,7 @@ public class Publisher {
     protected static int count = 10;
     protected static int total;
 
-    protected static String brokerURL = "tcp://127.0.0.1:61616";
+    protected static String brokerURL = "http://localhost:61620";
     protected static transient ConnectionFactory factory;
     protected transient Connection connection;
     protected transient Session session;
@@ -32,9 +35,9 @@ public class Publisher {
     }
 
     public static void main(String[] args) throws JMSException {
-        String[] arguments = new String[] {"CSCO", "ORCL"};
+        String arguments[] = new String[]{"CSCO", "ORCL"};
         Publisher publisher = new Publisher();
-        while (total < 1000) {
+        while (total < 300) {
             for (int i = 0; i < count; i++) {
                 publisher.sendMessage(arguments);
             }

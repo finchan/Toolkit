@@ -8,17 +8,12 @@ import javax.jms.*;
 
 /**
  * <transportConnector  name="udp" uri="udp://0.0.0.0:61617?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
- * udp://localhost:61616
- * Got the following errors -
- * 2020-07-20 16:10:50 [ActiveMQ InactivityMonitor ReadCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - No connection attempt made in time for udp://localhost:61617@63009! Throwing InactivityIOException.
- * 2020-07-20 16:10:50 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.ActiveMQConnection - Async exception with no exception listener: {}
- * org.apache.activemq.transport.InactivityIOException: Channel was inactive (no connection attempt made) for too (>30000) long: /127.0.0.1:63010
- *
- * Currently, I cannot resolve it!
+ *  Exception: org.apache.activemq.transport.InactivityIOException: Channel was inactive (no connection attempt made) for too (>30000) long: /127.0.0.1:52734
+ *  Cannot be resolved!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 public class Publisher {
     private static Logger log = LoggerFactory.getLogger(Publisher.class);
-    private static String brokerURL = "udp://127.0.0.1:61617?wireFormat.maxInactivityDuration=0";
+    private static String brokerURL = "udp://localhost:61617?wireFormat.maxInactivityDuration=0";
     private static transient ConnectionFactory factory;
     private transient Connection connection;
     private transient Session session;

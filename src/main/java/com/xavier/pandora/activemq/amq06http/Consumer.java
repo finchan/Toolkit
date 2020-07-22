@@ -1,4 +1,4 @@
-package com.xavier.pandora.activemq.amq01pubsub;
+package com.xavier.pandora.activemq.amq06http;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
@@ -8,7 +8,7 @@ import javax.jms.*;
 
 public class Consumer {
     private static Logger log = LoggerFactory.getLogger(Consumer.class);
-    private static String brokerURL = "tcp://127.0.0.1:61616";
+    private static String brokerURL = "http://127.0.0.1:61620";
     private static transient ConnectionFactory factory;
     private transient Connection connection;
     private transient Session session;
@@ -26,8 +26,9 @@ public class Consumer {
         }
     }
 
+    //args - CSCO ORCL
     public static void main(String[] args) throws JMSException {
-        String[] arguments = new String[] {"CSCO", "ORCL"};
+        String arguments[] = new String[]{"CSCO", "ORCL"};
         Consumer consumer = new Consumer();
         for (String stock : arguments) {
             String topicName = "STOCK." + stock;

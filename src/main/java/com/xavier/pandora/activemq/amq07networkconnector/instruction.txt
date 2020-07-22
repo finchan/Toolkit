@@ -1,0 +1,2 @@
+activemq start xbean:file:F:/Practice/Toolkit/src/main/java/com/xavier/pandora/activemq/amq07networkconnector/brokerA.xml
+activemq start xbean:file:F:/Practice/Toolkit/src/main/java/com/xavier/pandora/activemq/amq07networkconnector/brokerB.xml

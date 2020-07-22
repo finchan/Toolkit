@@ -11,7 +11,8 @@ import java.util.Map;
 
 /**
  * <transportConnector name="ssl" uri="ssl://0.0.0.0:61619?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
- * It doesn't work!!!!! Why????
+ * Exception in thread "main" javax.jms.JMSException: Could not connect to broker URL: ssl://localhost:61619. Reason: java.net.SocketException: Connection or outbound has closed
+ * Cannot be resolved!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 public class Publisher {
     private static Logger log = LoggerFactory.getLogger(Publisher.class);
@@ -21,7 +22,7 @@ public class Publisher {
     protected static int count = 10;
     protected static int total;
 
-    protected static String brokerURL = "ssl://127.0.0.1:61619";
+    protected static String brokerURL = "ssl://localhost:61619";
     protected static transient ConnectionFactory factory;
     protected transient Connection connection;
     protected transient Session session;
@@ -37,12 +38,12 @@ public class Publisher {
 
     public static void main(String[] args) throws JMSException {
         //JSSE with ActiveMQ default keyStore and trustStore - ${ACTIVEMQ_HOME}/conf/
-//        System.setProperty("javax.net.ssl.keyStore", "F:\\Practice\\Toolkit\\src\\main\\java\\com\\xavier\\pandora\\activemq\\amq05ssl\\client.ks");
-//        System.setProperty("javax.net.ssl.keyStorePassword", "password");
-//        System.setProperty("javax.net.ssl.trustStore", "F:\\Practice\\Toolkit\\src\\main\\java\\com\\xavier\\pandora\\activemq\\amq05ssl\\client.ts");
-        System.setProperty("javax.net.ssl.keyStore", "D:\\Development\\apache-activemq-5.15.13\\conf\\myclient.ks");
-        System.setProperty("javax.net.ssl.keyStorePassword", "pass1234");
-        System.setProperty("javax.net.ssl.trustStore", "D:\\Development\\apache-activemq-5.15.13\\conf\\myclient.ts");
+        System.setProperty("javax.net.ssl.keyStore", "F:\\Practice\\Toolkit\\src\\main\\java\\com\\xavier\\pandora\\activemq\\amq05ssl\\client.ks");
+        System.setProperty("javax.net.ssl.keyStorePassword", "password");
+        System.setProperty("javax.net.ssl.trustStore", "F:\\Practice\\Toolkit\\src\\main\\java\\com\\xavier\\pandora\\activemq\\amq05ssl\\client.ts");
+//        System.setProperty("javax.net.ssl.keyStore", "F:\\Practice\\Toolkit\\src\\main\\java\\com\\xavier\\pandora\\activemq\\amq05ssl\\myclient.ks");
+//        System.setProperty("javax.net.ssl.keyStorePassword", "pass1234");
+//        System.setProperty("javax.net.ssl.trustStore", "F:\\Practice\\Toolkit\\src\\main\\java\\com\\xavier\\pandora\\activemq\\amq05ssl\\myclient.ts");
 
         String arguments[] = new String[]{"CSCO", "ORCL"};
         Publisher publisher = new Publisher();

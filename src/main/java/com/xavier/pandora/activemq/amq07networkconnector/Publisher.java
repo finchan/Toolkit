@@ -1,4 +1,4 @@
-package com.xavier.pandora.activemq.amq01pubsub;
+package com.xavier.pandora.activemq.amq07networkconnector;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQMapMessage;
