@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="807c50a9-4bcb-4df9-b555-7624743e4c1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/fastjson/introduce.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/toolkit/entity/Emp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/toolkit/mapper/EmpMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/toolkit/mapper/EmpMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/toolkit/mapper/SysRole2Mapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/toolkit/service/EmpService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/toolkit/service/impl/EmpServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xavier/toolkit/service/SysRole1Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xavier/toolkit/service/SysRole1Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xavier/toolkit/service/impl/SysRole1ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xavier/toolkit/service/impl/SysRole1ServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/xavier/toolkit/service/ServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xavier/toolkit/service/ServiceTest.java" afterDir="false" />
+    <list default="true" id="29953906-a64d-4b40-9248-03693a2239ce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpRequestInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpResponseHeader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpResponseInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/toolkit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/toolkit.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +53,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -100,7 +95,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -110,7 +105,7 @@
       <recent name="F:\Practice\Toolkit\src\doc" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ServiceTest.batchInsertEnhancementTest">
+  <component name="RunManager" selected="Application.HttpResponseHeader">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -118,41 +113,50 @@
       <module />
       <method />
     </configuration>
+    <configuration name="HttpRequestInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.HttpRequestInfo" />
+      <module name="toolkit" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HttpResponseHeader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.HttpResponseHeader" />
+      <module name="toolkit" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HttpResponseInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.HttpResponseInfo" />
+      <module name="toolkit" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyMapperProxyTest.testSelectAllUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="toolkit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xavier.toolkit.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.xavier.toolkit.service" />
-      <option name="MAIN_CLASS_NAME" value="com.xavier.toolkit.service.MyMapperProxyTest" />
-      <option name="METHOD_NAME" value="testSelectAllUsers" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="toolkit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xavier.toolkit.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.xavier.toolkit.service" />
-      <option name="MAIN_CLASS_NAME" value="com.xavier.toolkit.service.ServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,23 +189,6 @@
       <option name="PACKAGE_NAME" value="com.xavier.toolkit.service" />
       <option name="MAIN_CLASS_NAME" value="com.xavier.toolkit.service.ServiceTest" />
       <option name="METHOD_NAME" value="batchInsertTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServiceTest.testSelectAnnotation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="toolkit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xavier.toolkit.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.xavier.toolkit.service" />
-      <option name="MAIN_CLASS_NAME" value="com.xavier.toolkit.service.ServiceTest" />
-      <option name="METHOD_NAME" value="testSelectAnnotation" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -242,11 +229,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HttpResponseHeader" />
+        <item itemvalue="Application.HttpResponseInfo" />
+        <item itemvalue="Application.HttpRequestInfo" />
         <item itemvalue="JUnit.ServiceTest.batchInsertEnhancementTest" />
         <item itemvalue="JUnit.ServiceTest.batchInsertTest" />
-        <item itemvalue="JUnit.ServiceTest" />
-        <item itemvalue="JUnit.ServiceTest.testSelectAnnotation" />
-        <item itemvalue="JUnit.MyMapperProxyTest.testSelectAllUsers" />
       </list>
     </recent_temporary>
   </component>
@@ -254,6 +241,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
+          <option name="contentProportion" value="0.2187017" />
           <treeState>
             <expand />
             <select />
@@ -317,98 +305,46 @@
     <option name="LAST_COMMIT_MESSAGE" value="Add MyBatis JDBCTYPE DOC" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1032" y="182" key="#Auto_Import" timestamp="1587996282950">
+    <state width="939" height="348" key="GridCell.Tab.0.bottom" timestamp="1603875287824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1032" y="182" key="#Auto_Import/0.0.1920.1040@0.0.1920.1040" timestamp="1587996282950" />
-    <state x="552" y="178" key="#SQL_Dialects" timestamp="1593689134125">
+    <state width="939" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603875287824" />
+    <state width="939" height="348" key="GridCell.Tab.0.center" timestamp="1603875287823">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#SQL_Dialects/0.0.1920.1040@0.0.1920.1040" timestamp="1593689134125" />
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587471239650">
+    <state width="939" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603875287823" />
+    <state width="939" height="348" key="GridCell.Tab.0.left" timestamp="1603875287823">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587471239650" />
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1593689694323">
+    <state width="939" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603875287823" />
+    <state width="939" height="348" key="GridCell.Tab.0.right" timestamp="1603875287824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1593689694323" />
-    <state x="689" y="295" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1587475221788">
+    <state width="939" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603875287824" />
+    <state width="939" height="348" key="GridCell.Tab.1.bottom" timestamp="1603875289184">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="689" y="295" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587475221788" />
-    <state x="723" y="225" key="#xdebugger.evaluate" timestamp="1593701572541">
+    <state width="939" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603875289184" />
+    <state width="939" height="348" key="GridCell.Tab.1.center" timestamp="1603875289183">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="723" y="225" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1593701572541" />
-    <state x="1040" y="116" key="CommitChangelistDialog2" timestamp="1588261015626">
+    <state width="939" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603875289183" />
+    <state width="939" height="348" key="GridCell.Tab.1.left" timestamp="1603875289183">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1040" y="116" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588261015626" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1587472067168">
+    <state width="939" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603875289183" />
+    <state width="939" height="348" key="GridCell.Tab.1.right" timestamp="1603875289183">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587472067168" />
-    <state x="1110" y="449" key="FileChooserDialogImpl" timestamp="1587822451881">
+    <state width="939" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603875289183" />
+    <state x="581" y="153" key="SettingsEditor" timestamp="1603874213532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1110" y="449" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587822451881" />
-    <state width="1293" height="282" key="GridCell.Tab.0.bottom" timestamp="1594211748456">
+    <state x="581" y="153" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603874213532" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603874560761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594211748456" />
-    <state width="1293" height="282" key="GridCell.Tab.0.center" timestamp="1594211748456">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594211748456" />
-    <state width="1293" height="282" key="GridCell.Tab.0.left" timestamp="1594211748456">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594211748456" />
-    <state width="1293" height="282" key="GridCell.Tab.0.right" timestamp="1594211748456">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594211748456" />
-    <state width="1877" height="346" key="GridCell.Tab.1.bottom" timestamp="1593702132905">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="346" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593702132905" />
-    <state width="1877" height="346" key="GridCell.Tab.1.center" timestamp="1593702132905">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="346" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593702132905" />
-    <state width="1877" height="346" key="GridCell.Tab.1.left" timestamp="1593702132905">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="346" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593702132905" />
-    <state width="1877" height="346" key="GridCell.Tab.1.right" timestamp="1593702132905">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="346" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593702132905" />
-    <state x="970" y="178" key="Maven.ArtifactSearchDialog" timestamp="1587996618413">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="970" y="178" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587996618413" />
-    <state x="267" y="281" width="1439" height="716" key="SettingsEditor" timestamp="1593689355306">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="267" y="281" width="1439" height="716" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593689355306" />
-    <state x="1032" y="256" key="Vcs.Push.Dialog.v2" timestamp="1588261028150">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1032" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588261028150" />
-    <state x="1160" y="311" key="git4idea.merge.GitPullDialog" timestamp="1587993229011">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1160" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587993229011" />
-    <state x="334" y="215" key="new project wizard" timestamp="1587470920327">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="334" y="215" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1587470920327" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1587472979205">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587472979205" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603874560761" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -422,6 +358,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/xavier/toolkit/service/MyMapperProxyTest.java</url>
           <line>35</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpResponseHeader.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
