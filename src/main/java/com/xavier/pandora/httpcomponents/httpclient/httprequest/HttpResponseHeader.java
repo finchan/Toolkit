@@ -1,10 +1,8 @@
 package com.xavier.pandora.httpcomponents.httpclient.httprequest;
 
-import org.apache.http.Header;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.HttpVersion;
+import org.apache.http.*;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.message.BasicHttpResponse;
 
 public class HttpResponseHeader {
@@ -23,5 +21,21 @@ public class HttpResponseHeader {
         System.out.println(h2);
         Header[] headers = response.getHeaders("Set-Cookie");
         System.out.println(headers.length);
+        HeaderIterator it = response.headerIterator("Set-Cookie");
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+
+        HeaderElementIterator heit = new BasicHeaderElementIterator(
+                response.headerIterator("Set-Cookie")
+        );
+        while(heit.hasNext()) {
+            HeaderElement elem = heit.nextElement();
+            System.out.println(elem.getName() + "=" +  elem.getValue());
+            NameValuePair[] params = elem.getParameters();
+            for (int i=0; i< params.length; i++) {
+                System.out.println(" " + params[i]);
+            }
+        }
     }
 }

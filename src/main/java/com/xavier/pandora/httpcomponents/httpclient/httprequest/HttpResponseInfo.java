@@ -18,7 +18,7 @@ public class HttpResponseInfo {
         System.out.println(response.getStatusLine().getProtocolVersion());
     }
 
-    //Intellij -> psvm to type main method quickly
+    //Intellij -> psvm, sout...
     public static void main(String[] args) {
         getHttpResponseInfo();
     }
