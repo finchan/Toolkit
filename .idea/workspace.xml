@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29953906-a64d-4b40-9248-03693a2239ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpRequestInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpResponseHeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpResponseInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpEntitySample.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/toolkit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/toolkit.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,13 +102,27 @@
       <recent name="F:\Practice\Toolkit\src\doc" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HttpResponseHeader">
+  <component name="RunManager" selected="Application.HttpEntitySample">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
       <method />
+    </configuration>
+    <configuration name="HttpEntitySample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.HttpEntitySample" />
+      <module name="toolkit" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="HttpRequestInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.HttpRequestInfo" />
@@ -178,23 +189,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServiceTest.batchInsertTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="toolkit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xavier.toolkit.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.xavier.toolkit.service" />
-      <option name="MAIN_CLASS_NAME" value="com.xavier.toolkit.service.ServiceTest" />
-      <option name="METHOD_NAME" value="batchInsertTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -229,11 +223,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HttpEntitySample" />
         <item itemvalue="Application.HttpResponseHeader" />
         <item itemvalue="Application.HttpResponseInfo" />
         <item itemvalue="Application.HttpRequestInfo" />
         <item itemvalue="JUnit.ServiceTest.batchInsertEnhancementTest" />
-        <item itemvalue="JUnit.ServiceTest.batchInsertTest" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +249,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="807c50a9-4bcb-4df9-b555-7624743e4c1b" name="Default Changelist" comment="" />
+      <changelist id="29953906-a64d-4b40-9248-03693a2239ce" name="Default Changelist" comment="" />
       <created>1587470751956</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -269,6 +263,9 @@
       <workItem from="1593686448488" duration="15629000" />
       <workItem from="1594119632815" duration="573000" />
       <workItem from="1594211591776" duration="617000" />
+      <workItem from="1603931147777" duration="7608000" />
+      <workItem from="1603962543623" duration="69000" />
+      <workItem from="1604019299864" duration="3231000" />
     </task>
     <task id="LOCAL-00001" summary="Add New DB">
       <created>1587826677976</created>
@@ -291,7 +288,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588261017642</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add HttpClient">
+      <created>1603875421144</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603875421144</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add HttpClient">
+      <created>1603962593170</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603962593170</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,45 +313,70 @@
     <MESSAGE value="Add New DB" />
     <MESSAGE value="Dynamic Proxy" />
     <MESSAGE value="Add MyBatis JDBCTYPE DOC" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add MyBatis JDBCTYPE DOC" />
+    <MESSAGE value="Add HttpClient" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add HttpClient" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="939" height="348" key="GridCell.Tab.0.bottom" timestamp="1603875287824">
+    <state x="927" y="199" key="#xdebugger.evaluate" timestamp="1604046932933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603875287824" />
-    <state width="939" height="348" key="GridCell.Tab.0.center" timestamp="1603875287823">
+    <state x="927" y="199" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1604046932933" />
+    <state x="527" y="117" key="CommitChangelistDialog2" timestamp="1603962590026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603875287823" />
-    <state width="939" height="348" key="GridCell.Tab.0.left" timestamp="1603875287823">
+    <state x="527" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603962590026" />
+    <state width="414" height="466" key="DebuggerActiveHint" timestamp="1603957455060">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603875287823" />
-    <state width="939" height="348" key="GridCell.Tab.0.right" timestamp="1603875287824">
+    <state width="414" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1603957455060" />
+    <state x="184" y="91" key="DiffContextDialog" timestamp="1603875399533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603875287824" />
-    <state width="939" height="348" key="GridCell.Tab.1.bottom" timestamp="1603875289184">
+    <state x="184" y="91" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603875399533" />
+    <state width="1879" height="210" key="GridCell.Tab.0.bottom" timestamp="1604048431275">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603875289184" />
-    <state width="939" height="348" key="GridCell.Tab.1.center" timestamp="1603875289183">
+    <state width="1879" height="210" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604048431275" />
+    <state width="1879" height="210" key="GridCell.Tab.0.center" timestamp="1604048431274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603875289183" />
-    <state width="939" height="348" key="GridCell.Tab.1.left" timestamp="1603875289183">
+    <state width="1879" height="210" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604048431274" />
+    <state width="1879" height="210" key="GridCell.Tab.0.left" timestamp="1604048431274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603875289183" />
-    <state width="939" height="348" key="GridCell.Tab.1.right" timestamp="1603875289183">
+    <state width="1879" height="210" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604048431274" />
+    <state width="1879" height="210" key="GridCell.Tab.0.right" timestamp="1604048431274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603875289183" />
+    <state width="1879" height="210" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604048431274" />
+    <state width="1879" height="147" key="GridCell.Tab.1.bottom" timestamp="1604048020826">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="147" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604048020826" />
+    <state width="1879" height="147" key="GridCell.Tab.1.center" timestamp="1604048020826">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="147" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604048020826" />
+    <state width="1879" height="147" key="GridCell.Tab.1.left" timestamp="1604048020826">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="147" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604048020826" />
+    <state width="1879" height="147" key="GridCell.Tab.1.right" timestamp="1604048020826">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="147" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604048020826" />
     <state x="581" y="153" key="SettingsEditor" timestamp="1603874213532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="581" y="153" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603874213532" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1603962600285">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603962600285" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1603956857445">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603956857445" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603874560761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -361,8 +397,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpResponseHeader.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="3" />
+          <line>34</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpEntitySample.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
