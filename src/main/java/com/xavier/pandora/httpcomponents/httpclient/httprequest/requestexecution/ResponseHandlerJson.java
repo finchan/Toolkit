@@ -1,25 +1,27 @@
-package com.xavier.pandora.httpcomponents.httpclient.httprequest;
+package com.xavier.pandora.httpcomponents.httpclient.httprequest.requestexecution;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.apache.camel.json.simple.JsonObject;
+import com.xavier.pandora.fastjson.data.Student;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.ResponseHandler;
-import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.entity.ContentType;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.springframework.boot.autoconfigure.gson.GsonBuilderCustomizer;
+import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,11 +37,16 @@ public class ResponseHandlerJson {
                 if(statusLine.getStatusCode() >= 300){
                     throw new HttpResponseException(statusLine.getStatusCode(), statusLine.getReasonPhrase());
                 }
-                Gson gson = new GsonBuilder().create();
                 ContentType contentType = ContentType.getOrDefault(entity);
                 Charset charset = contentType.getCharset();
-                Reader reader = new InputStreamReader(entity.getContent(), charset);
-                return gson.fromJson(reader, List.class);
+                Gson gson = new GsonBuilder().create();
+//                Reader reader = new InputStreamReader(entity.getContent(), charset);
+//                return gson.fromJson(reader, List.class);
+                return gson.fromJson(EntityUtils.toString(entity), List.class);
+                //使用两种方式 - Gson和FastJson解析Json字符串，
+                //Gson可以自动映射，将double转换为double...但FastJson不能，统一转换为String
+//                List<Map<String,String>> list = JSON.parseObject(EntityUtils.toString(entity),new TypeReference<ArrayList<Map<String,String>>>() {});
+//                return list;
             }
         };
         List<Map<String,String>> list = client.execute(get, rh);

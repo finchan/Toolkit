@@ -1,4 +1,4 @@
-package com.xavier.pandora.httpcomponents.httpclient.httprequest;
+package com.xavier.pandora.httpcomponents.httpclient.httprequest.requestexecution;
 
 import org.apache.http.*;
 import org.apache.http.client.methods.HttpGet;
