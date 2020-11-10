@@ -1,4 +1,4 @@
-package com.xavier.pandora.httpcomponents.httpclient.httprequest.requestexecution;
+package com.xavier.pandora.httpcomponents.httpclient.requestexecution;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;

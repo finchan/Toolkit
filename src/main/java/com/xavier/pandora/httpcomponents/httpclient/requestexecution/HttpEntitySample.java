@@ -1,4 +1,4 @@
-package com.xavier.pandora.httpcomponents.httpclient.httprequest.requestexecution;
+package com.xavier.pandora.httpcomponents.httpclient.requestexecution;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
