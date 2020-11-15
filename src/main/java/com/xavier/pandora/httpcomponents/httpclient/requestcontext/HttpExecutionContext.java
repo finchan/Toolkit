@@ -1,4 +1,4 @@
-package com.xavier.pandora.httpcomponents.httpclient.httprequestcontext;
+package com.xavier.pandora.httpcomponents.httpclient.requestcontext;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
@@ -15,7 +15,7 @@ import org.apache.http.protocol.HttpContext;
 
 import java.io.IOException;
 
-public class HttpExcecutionContext {
+public class HttpExecutionContext {
     public static void main(String[] args) throws IOException {
         HttpContext context = new BasicHttpContext();
         HttpClientContext clientContext = HttpClientContext.adapt(context);
