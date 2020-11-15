@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29953906-a64d-4b40-9248-03693a2239ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpEntitySample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/protocolinterceptors/ProtocolInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequestcontext/ConnectionKeepAliveStrategySample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/requestcontext/ConnectionKeepAliveStrategySample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequestcontext/HttpExcecutionContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/requestcontext/HttpExcecutionContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/toolkit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/toolkit.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +70,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1aqkwmV9c5rp4lUxekOa3611zcx" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -95,14 +98,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Practice\Toolkit\src\data" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.xavier.pandora.httpcomponents.httpclient.httprequest.requestexecution" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Practice\Toolkit\src\doc" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Practice\Toolkit\src\data" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.HttpEntitySample">
+  <component name="RunManager" selected="Application.ProtocolInterceptor">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -110,13 +116,13 @@
       <module />
       <method />
     </configuration>
-    <configuration name="HttpEntitySample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.HttpEntitySample" />
+    <configuration name="ContentChunking" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.requestexecution.ContentChunking" />
       <module name="toolkit" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.*" />
+          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.requestexecution.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,13 +130,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HttpRequestInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.HttpRequestInfo" />
+    <configuration name="HttpClientFormEntity" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.requestexecution.HttpClientFormEntity" />
       <module name="toolkit" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.*" />
+          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.requestexecution.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -138,13 +144,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HttpResponseHeader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.HttpResponseHeader" />
+    <configuration name="HttpExecutionContext" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.requestcontext.HttpExecutionContext" />
       <module name="toolkit" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.*" />
+          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.requestcontext.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -152,13 +158,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HttpResponseInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.HttpResponseInfo" />
+    <configuration name="ProtocolInterceptor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.protocolinterceptors.ProtocolInterceptor" />
       <module name="toolkit" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.*" />
+          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.protocolinterceptors.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ResponseHandlerJson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.requestexecution.ResponseHandlerJson" />
+      <module name="toolkit" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xavier.pandora.httpcomponents.httpclient.httprequest.requestexecution.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -168,23 +188,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServiceTest.batchInsertEnhancementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="toolkit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xavier.toolkit.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.xavier.toolkit.service" />
-      <option name="MAIN_CLASS_NAME" value="com.xavier.toolkit.service.ServiceTest" />
-      <option name="METHOD_NAME" value="batchInsertEnhancementTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -223,11 +226,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HttpEntitySample" />
-        <item itemvalue="Application.HttpResponseHeader" />
-        <item itemvalue="Application.HttpResponseInfo" />
-        <item itemvalue="Application.HttpRequestInfo" />
-        <item itemvalue="JUnit.ServiceTest.batchInsertEnhancementTest" />
+        <item itemvalue="Application.ProtocolInterceptor" />
+        <item itemvalue="Application.HttpExecutionContext" />
+        <item itemvalue="Application.ResponseHandlerJson" />
+        <item itemvalue="Application.ContentChunking" />
+        <item itemvalue="Application.HttpClientFormEntity" />
       </list>
     </recent_temporary>
   </component>
@@ -235,7 +238,6 @@
     <option name="viewStates">
       <list>
         <serviceView>
-          <option name="contentProportion" value="0.2187017" />
           <treeState>
             <expand />
             <select />
@@ -266,6 +268,11 @@
       <workItem from="1603931147777" duration="7608000" />
       <workItem from="1603962543623" duration="69000" />
       <workItem from="1604019299864" duration="3231000" />
+      <workItem from="1604801991220" duration="12199000" />
+      <workItem from="1604926838905" duration="3028000" />
+      <workItem from="1605194366297" duration="1802000" />
+      <workItem from="1605275851142" duration="3921000" />
+      <workItem from="1605452265405" duration="605000" />
     </task>
     <task id="LOCAL-00001" summary="Add New DB">
       <created>1587826677976</created>
@@ -302,7 +309,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603962593170</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add HttpClient Method">
+      <created>1604849591153</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604849591153</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Request Execution">
+      <created>1604934533412</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1604934533412</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,65 +335,87 @@
     <MESSAGE value="Dynamic Proxy" />
     <MESSAGE value="Add MyBatis JDBCTYPE DOC" />
     <MESSAGE value="Add HttpClient" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add HttpClient" />
+    <MESSAGE value="Add HttpClient Method" />
+    <MESSAGE value="Request Execution" />
+    <option name="LAST_COMMIT_MESSAGE" value="Request Execution" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="927" y="199" key="#xdebugger.evaluate" timestamp="1604046932933">
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1604847591112">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="927" y="199" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1604046932933" />
-    <state x="527" y="117" key="CommitChangelistDialog2" timestamp="1603962590026">
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604847591112" />
+    <state x="735" y="300" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1604930127367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="527" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603962590026" />
-    <state width="414" height="466" key="DebuggerActiveHint" timestamp="1603957455060">
+    <state x="735" y="300" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604930127367" />
+    <state x="739" y="378" width="703" height="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1604930129133">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="414" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1603957455060" />
+    <state x="739" y="378" width="703" height="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1604930129133" />
+    <state x="932" y="129" key="#xdebugger.evaluate" timestamp="1605277541985">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="932" y="129" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1605277541985" />
+    <state x="527" y="117" key="CommitChangelistDialog2" timestamp="1605453066590">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="527" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1605453066590" />
+    <state width="455" height="466" key="DebuggerActiveHint" timestamp="1605277286003">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="455" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1605277286003" />
     <state x="184" y="91" key="DiffContextDialog" timestamp="1603875399533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="91" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603875399533" />
-    <state width="1879" height="210" key="GridCell.Tab.0.bottom" timestamp="1604048431275">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom" timestamp="1605285128956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="210" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604048431275" />
-    <state width="1879" height="210" key="GridCell.Tab.0.center" timestamp="1604048431274">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605285128956" />
+    <state width="1877" height="308" key="GridCell.Tab.0.center" timestamp="1605285128956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="210" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604048431274" />
-    <state width="1879" height="210" key="GridCell.Tab.0.left" timestamp="1604048431274">
+    <state width="1877" height="308" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605285128956" />
+    <state width="1877" height="308" key="GridCell.Tab.0.left" timestamp="1605285128956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="210" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604048431274" />
-    <state width="1879" height="210" key="GridCell.Tab.0.right" timestamp="1604048431274">
+    <state width="1877" height="308" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605285128956" />
+    <state width="1877" height="308" key="GridCell.Tab.0.right" timestamp="1605285128956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="210" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604048431274" />
-    <state width="1879" height="147" key="GridCell.Tab.1.bottom" timestamp="1604048020826">
+    <state width="1877" height="308" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605285128956" />
+    <state width="1877" height="308" key="GridCell.Tab.1.bottom" timestamp="1605285128956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="147" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604048020826" />
-    <state width="1879" height="147" key="GridCell.Tab.1.center" timestamp="1604048020826">
+    <state width="1877" height="308" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605285128956" />
+    <state width="1877" height="308" key="GridCell.Tab.1.center" timestamp="1605285128956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="147" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604048020826" />
-    <state width="1879" height="147" key="GridCell.Tab.1.left" timestamp="1604048020826">
+    <state width="1877" height="308" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605285128956" />
+    <state width="1877" height="308" key="GridCell.Tab.1.left" timestamp="1605285128956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="147" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604048020826" />
-    <state width="1879" height="147" key="GridCell.Tab.1.right" timestamp="1604048020826">
+    <state width="1877" height="308" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605285128956" />
+    <state width="1877" height="308" key="GridCell.Tab.1.right" timestamp="1605285128956">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1879" height="147" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604048020826" />
+    <state width="1877" height="308" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605285128956" />
     <state x="581" y="153" key="SettingsEditor" timestamp="1603874213532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="581" y="153" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603874213532" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1603962600285">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1605453073381">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603962600285" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605453073381" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605277220608">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1605277220608" />
+    <state x="680" y="311" key="git4idea.merge.GitPullDialog" timestamp="1605452974892">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="680" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605452974892" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1603956857445">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -396,16 +439,31 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpResponseHeader.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/requestexecution/HttpResponseHeader.java</url>
           <line>34</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/HttpEntitySample.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/requestexecution/HttpEntitySample.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/requestexecution/HttpClientEntityUtils.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xavier/pandora/httpcomponents/httpclient/httprequest/requestexecution/HttpClientEntityUtils.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="this.execChain" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
