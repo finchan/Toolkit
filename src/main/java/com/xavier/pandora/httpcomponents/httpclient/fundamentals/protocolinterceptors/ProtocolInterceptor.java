@@ -1,4 +1,4 @@
-package com.xavier.pandora.httpcomponents.httpclient.protocolinterceptors;
+package com.xavier.pandora.httpcomponents.httpclient.fundamentals.protocolinterceptors;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpException;

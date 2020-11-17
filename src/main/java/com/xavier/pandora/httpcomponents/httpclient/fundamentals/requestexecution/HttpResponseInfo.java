@@ -1,4 +1,4 @@
-package com.xavier.pandora.httpcomponents.httpclient.requestexecution;
+package com.xavier.pandora.httpcomponents.httpclient.fundamentals.requestexecution;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;

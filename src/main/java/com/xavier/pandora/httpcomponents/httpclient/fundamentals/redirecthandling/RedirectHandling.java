@@ -1,4 +1,4 @@
-package com.xavier.pandora.httpcomponents.httpclient.redirecthandling;
+package com.xavier.pandora.httpcomponents.httpclient.fundamentals.redirecthandling;
 
 import org.apache.http.HttpHost;
 import org.apache.http.client.methods.CloseableHttpResponse;

@@ -1,7 +1,6 @@
-package com.xavier.pandora.httpcomponents.httpclient.requestexecution;
+package com.xavier.pandora.httpcomponents.httpclient.fundamentals.requestexecution;
 
 import org.apache.http.*;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.message.BasicHttpResponse;
 

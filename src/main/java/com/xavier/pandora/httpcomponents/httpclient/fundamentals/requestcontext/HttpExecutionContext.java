@@ -1,4 +1,4 @@
-package com.xavier.pandora.httpcomponents.httpclient.requestcontext;
+package com.xavier.pandora.httpcomponents.httpclient.fundamentals.requestcontext;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;

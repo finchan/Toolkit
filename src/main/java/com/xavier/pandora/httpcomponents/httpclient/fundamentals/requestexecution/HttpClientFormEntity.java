@@ -1,4 +1,4 @@
-package com.xavier.pandora.httpcomponents.httpclient.requestexecution;
+package com.xavier.pandora.httpcomponents.httpclient.fundamentals.requestexecution;
 
 import org.apache.http.Consts;
 import org.apache.http.NameValuePair;

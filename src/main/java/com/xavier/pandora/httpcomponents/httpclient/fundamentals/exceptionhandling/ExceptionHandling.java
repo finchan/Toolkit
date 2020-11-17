@@ -1,4 +1,4 @@
-package com.xavier.pandora.httpcomponents.httpclient.exceptionhandling;
+package com.xavier.pandora.httpcomponents.httpclient.fundamentals.exceptionhandling;
 
 import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpRequest;
