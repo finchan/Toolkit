@@ -1,0 +1,4 @@
+https://www.tutorialspoint.com/apache_httpclient/apache_httpclient_response_handlers.htm
+https://www.javaguides.net/p/apache-httpclient-tutorial.html
+https://www.baeldung.com/httpclient-guide
+https://www.baeldung.com/category/http/tag/httpclient/
