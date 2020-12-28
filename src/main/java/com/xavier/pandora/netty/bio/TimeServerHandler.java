@@ -35,15 +35,15 @@ public class TimeServerHandler implements Runnable {
                 switch (body) {
                     case "TIME":
                         currentTime = new Date(System.currentTimeMillis()).toString();
-                        Thread.sleep(3000);
+                        Thread.sleep(70000);
                         break;
                     case "HOURS":
                         currentTime = String.valueOf(new Date(System.currentTimeMillis()).getHours());
-                        Thread.sleep(2000);
+                        Thread.sleep(70000);
                         break;
                     case "MINUTES":
                         currentTime = String.valueOf(new Date(System.currentTimeMillis()).getMinutes());
-                        Thread.sleep(1000);
+                        Thread.sleep(70000);
                         break;
                     default:
                         currentTime = "BAD TIME";
