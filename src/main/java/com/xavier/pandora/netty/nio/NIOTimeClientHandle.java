@@ -86,6 +86,7 @@ public class NIOTimeClientHandle implements Runnable{
                     System.exit(1);
                 }
                 if(key.isReadable()) {
+                    log.info("Readable?");
                     ByteBuffer readBuffer = ByteBuffer.allocate(1024);
                     int readBytes = sc.read(readBuffer);
                     if(readBytes > 0) {
