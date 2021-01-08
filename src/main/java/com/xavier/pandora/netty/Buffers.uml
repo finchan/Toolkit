@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1373.4303475011282" y="608.7044393085773">java.nio.CharBuffer</node>
+    <node x="1029.6155259720451" y="320.7730412685776">java.nio.FloatBuffer</node>
+    <node x="1499.7954024502087" y="382.23286189937164">java.nio.DoubleBuffer</node>
+    <node x="1384.9560227846828" y="192.06153838548857">java.nio.ShortBuffer</node>
+    <node x="0.0" y="563.392136630177">java.nio.DirectByteBuffer.Deallocator</node>
+    <node x="189.0988059299739" y="563.392136630177">java.nio.DirectByteBuffer</node>
+    <node x="0.0" y="905.6448132470069">java.nio.CharBufferSpliterator</node>
+    <node x="1106.4062544956412" y="0.0">java.nio.HeapIntBuffer</node>
+    <node x="644.4701551842635" y="600.9034752828819">java.nio.ByteBuffer</node>
+    <node x="261.0" y="905.6448132470069">java.nio.ByteOrder</node>
+    <node x="1544.0729312289877" y="673.6912894694976">java.nio.StringCharBuffer</node>
+    <node x="1294.9348866498647" y="795.8850449423643">java.nio.HeapCharBuffer</node>
+    <node x="1186.955321660785" y="178.20394511350395">java.nio.IntBuffer</node>
+    <node x="1476.1439184552094" y="17.126379195415097">java.nio.HeapShortBuffer</node>
+    <node x="1278.6447924821232" y="398.2067849382494">java.nio.Buffer</node>
+    <node x="736.018078845622" y="829.6448132470069">java.nio.HeapByteBuffer</node>
+    <node x="819.260953814244" y="255.06265258847543">java.nio.HeapFloatBuffer</node>
+    <node x="1122.3772251717153" y="590.320582613219">java.nio.LongBuffer</node>
+    <node x="417.73530915425715" y="569.1606288559407">java.nio.MappedByteBuffer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.nio.DoubleBuffer" target="java.nio.Buffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.IntBuffer" target="java.nio.Buffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.HeapShortBuffer" target="java.nio.ShortBuffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.HeapByteBuffer" target="java.nio.ByteBuffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.HeapIntBuffer" target="java.nio.IntBuffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.DirectByteBuffer" target="java.nio.MappedByteBuffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.ShortBuffer" target="java.nio.Buffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.FloatBuffer" target="java.nio.Buffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.CharBuffer" target="java.nio.Buffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.HeapFloatBuffer" target="java.nio.FloatBuffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.DirectByteBuffer.Deallocator" target="java.nio.DirectByteBuffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.LongBuffer" target="java.nio.Buffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.MappedByteBuffer" target="java.nio.ByteBuffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.ByteBuffer" target="java.nio.Buffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.HeapCharBuffer" target="java.nio.CharBuffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="java.nio.StringCharBuffer" target="java.nio.CharBuffer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Circular" zoom="0.9268547544409613" x="860.5" y="468.5" />
+  <SelectedNodes>
+    <node>java.nio.ByteOrder</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
