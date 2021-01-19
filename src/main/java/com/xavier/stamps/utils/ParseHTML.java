@@ -80,7 +80,7 @@ public class ParseHTML {
         stamp.setImgLink("https:"+imgLink);
         //set Blob Property
         stamp.setImg(getImageStream("https:"+imgLink));
-        String imgName = imgLink.substring(imgLink.lastIndexOf("/"));
+        String imgName = imgLink.substring(imgLink.lastIndexOf("/")+1);
         stamp.setImgName(imgName);
         Elements details = doc.getElementById("item_full_details").child(0).getElementsByTag("dl").get(0).children();
         for(int i=0; i< details.size(); i++) {
@@ -95,6 +95,7 @@ public class ParseHTML {
                         stamp.setSeries(infoDetail);
                         break;
                     case "Catalog codes":
+                        infoDetail = details.get(5).html().replaceAll("</*strong>", "").replaceAll("<br>","");
                         stamp.setCodes(infoDetail);
                         break;
                     case "Themes":

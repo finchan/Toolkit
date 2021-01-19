@@ -9,15 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@MapperScan({"com.xavier.toolkit.mapper", "com.xavier.toolkit.dao"})
+@MapperScan({"com.xavier.toolkit.mapper"})
 public class ServiceTest {
     @Autowired SysUser1Service  sysUser1Service;
     @Autowired SysRole1Service sysRole1Service;

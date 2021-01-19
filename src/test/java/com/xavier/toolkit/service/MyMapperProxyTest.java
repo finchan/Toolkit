@@ -3,7 +3,8 @@ package com.xavier.toolkit.service;
 import com.xavier.toolkit.entity.SysUser1;
 import com.xavier.toolkit.mapper.SysUser1Mapper;
 import com.xavier.toolkit.mapper.impl.MyMapperProxy;
-import org.apache.ibatis.session.*;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +19,8 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MyMapperProxyTest {
-    @Autowired SqlSessionFactory factory;
+    @Autowired
+    SqlSessionFactory factory;
 
     private SqlSession sqlSession;
 

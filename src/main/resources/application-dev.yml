@@ -3,16 +3,23 @@ server:
 
 spring:
   datasource:
-    username: hr
-    password: hr
-    driver-class-name: oracle.jdbc.driver.OracleDriver
-    url:  jdbc:oracle:thin:@127.0.0.1:1521:xe
+#    username: hr
+#    password: hr
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    url:  jdbc:oracle:thin:@127.0.0.1:1521:xe
+    url: jdbc:sqlite:C:/Users/j/Downloads/stamps.s3db
+    driver-class-name: org.sqlite.JDBC
+    username:
+    password:
+
 
 mybatis:
-    mapper-locations: com/xavier/toolkit/mapper/*.xml
-    type-aliases-package: com.xavier.toolkit.entity
-    configuration:
-      map-underscore-to-camel-case: true
+#    mapper-locations: com/xavier/toolkit/mapper/*.xml
+#    type-aliases-package: com.xavier.toolkit.entity
+  mapper-locations: com/xavier/stamps/mapper/*.xml
+  type-aliases-package: com.xavier.stamps.entity
+  configuration:
+    map-underscore-to-camel-case: true
 
 logging:
   level:

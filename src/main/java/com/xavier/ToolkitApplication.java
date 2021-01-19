@@ -1,13 +1,12 @@
-package com.xavier.toolkit;
+package com.xavier;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-@MapperScan(value={"com.xavier.toolkit.mapper"})
+@MapperScan(value={"com.xavier.*"})
 public class ToolkitApplication {
 
     public static void main(String[] args) {
