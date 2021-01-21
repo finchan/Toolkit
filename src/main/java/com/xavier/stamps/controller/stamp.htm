@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<input type="button" id="addStamp" value="Add A new Stamp">
+		<script>
+			window.onload = function() {
+				$("#addStamp").on("click", function() {
+					$.ajax({
+						url: "http://localhost:9090/insert_stamp?id=12453&link=https%3a%2f%2fcolnect.com%2fen%2fstamps%2fstamp%2f121108-Edible_Frog_Rana_esculenta_Dwarf_Waterlily_Nymphaea_cand-Protection_of_Nature-Czechoslovakia",
+						//url: "http://www.baidu.com",
+						dataType: "text",
+						method: "GET",
+						success: function(result) {
+							console.info(result);
+						},
+						error: function(err) {
+							console.info(err);
+						}
+					});
+				});
+			};
+		</script>
+	</body>
+</html>
