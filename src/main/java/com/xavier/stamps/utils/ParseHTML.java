@@ -129,7 +129,7 @@ public class ParseHTML {
                         stamp.setFaceValue(infoDetail);
                         break;
                     case "Print run":
-                        stamp.setPrintRun(Integer.parseInt(infoDetail.replaceAll(",", "")));
+                        stamp.setPrintRun(Long.parseLong(infoDetail.replaceAll(",", "")));
                         break;
                     case "Score":
                         stamp.setScore(infoDetail.substring(0, infoDetail.indexOf("%")+1));

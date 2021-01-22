@@ -168,6 +168,19 @@
     </trim>
   </insert>
 
+  <select id="queryMaxID" resultType="java.lang.String">
+    select
+      ID
+    from
+      STAMPS
+    where
+        substr(ID, 4, 9) = (
+        select
+          max(substr(ID, 4, 9))
+        from
+          STAMPS)
+  </select>
+
 <!--  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">-->
 <!--    &lt;!&ndash;@mbg.generated&ndash;&gt;-->
 <!--    select -->

@@ -16,7 +16,7 @@ public class Stamp {
     private String printing;
     private String paper;
     private String faceValue;
-    private Integer printRun;
+    private Long printRun;
     private String score;
     private String links;
     private byte[] img;
@@ -179,11 +179,11 @@ public class Stamp {
         this.faceValue = faceValue;
     }
 
-    public Integer getPrintRun() {
+    public Long getPrintRun() {
         return printRun;
     }
 
-    public void setPrintRun(Integer printRun) {
+    public void setPrintRun(Long printRun) {
         this.printRun = printRun;
     }
 

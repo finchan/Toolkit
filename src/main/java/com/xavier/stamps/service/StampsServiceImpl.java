@@ -14,4 +14,9 @@ public class StampsServiceImpl implements StampsService {
     public void insertStampInfo(Stamp stamp){
         stampsMapper.insertStampInfo(stamp);
     }
+
+    @Override
+    public String queryMaxID() {
+        return stampsMapper.queryMaxID();
+    }
 }

@@ -18,4 +18,6 @@ public interface StampsMapper {
 //    int updateByPrimaryKey(Stamp record);
 
     void insertStampInfo(Stamp stamp);
+
+    String queryMaxID();
 }

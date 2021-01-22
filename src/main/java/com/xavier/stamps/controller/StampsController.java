@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 class StampsController {
     @Autowired
@@ -34,6 +37,17 @@ class StampsController {
 
         stampsService.insertStampInfo(stamp);
 
+        return resultData;
+    }
+
+    @RequestMapping(path="/query_max_id", method= RequestMethod.GET)
+    public ResultData queryMaxID(){
+        ResultData resultData = new ResultData();
+
+        String maxID = stampsService.queryMaxID();
+        Map<String, String> data = new HashMap<String, String>();
+        data.put("maxID", maxID);
+        resultData.setData(data);
         return resultData;
     }
 }
