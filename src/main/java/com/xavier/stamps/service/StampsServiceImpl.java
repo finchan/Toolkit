@@ -11,7 +11,7 @@ public class StampsServiceImpl implements StampsService {
     private StampsMapper stampsMapper;
 
     @Override
-    public void insertStampInfo(Stamp stamp) {
+    public void insertStampInfo(Stamp stamp){
         stampsMapper.insertStampInfo(stamp);
     }
 }

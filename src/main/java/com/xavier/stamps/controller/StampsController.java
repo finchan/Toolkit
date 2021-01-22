@@ -3,6 +3,8 @@ package com.xavier.stamps.controller;
 import com.xavier.stamps.entity.Stamp;
 import com.xavier.stamps.service.StampsService;
 import com.xavier.stamps.utils.ParseHTML;
+import com.xavier.stamps.utils.StringUtil;
+import com.xavier.stamps.vo.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,16 +14,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class StampsController {
     @Autowired
-    StampsService stampsService;
+    private StampsService stampsService;
 
-    @RequestMapping(path="/insert_stamp", method= RequestMethod.GET)
-    public String insertAStamp(@RequestParam("id") String id, @RequestParam("link") String link){
-//      https://colnect.com/en/stamps/stamp/121108-Edible_Frog_Rana_esculenta_Dwarf_Waterlily_Nymphaea_cand-Protection_of_Nature-Czechoslovakia
-        if(id == null || link == null)
-            return "failed";
+    @RequestMapping(path="/insert_stamp", method= RequestMethod.PUT)
+    public ResultData insertAStamp(@RequestParam("id") String id, @RequestParam("link") String link){
+        ResultData resultData = new ResultData();
+        if(StringUtil.emptyString(id) || StringUtil.emptyString(link)){
+            resultData.setResult(false);
+            resultData.setErrorMessage("ID/LINK is null");
+            return resultData;
+        }
 
         Stamp stamp = ParseHTML.generateEntireStamp(id, link);
+        if(stamp.getImg() == null) {
+            resultData.setResult(false);
+            resultData.setErrorMessage("Stamp image can not be retrieved");
+            return resultData;
+        }
+
         stampsService.insertStampInfo(stamp);
-        return "success";
+
+        return resultData;
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @MapperScan({"com.xavier.stamps.mapper"})
-@ComponentScan({"com.xavier.stamps.controller","com.xavier.stamps.service"})
+@ComponentScan({"com.xavier.config","com.xavier.stamps.controller","com.xavier.stamps.service"})
 public class ToolkitApplication {
 
     public static void main(String[] args) {
