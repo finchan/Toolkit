@@ -20,4 +20,6 @@ public interface StampsMapper {
     void insertStampInfo(Stamp stamp);
 
     String queryMaxID();
+
+    Stamp getStampViaID(String id);
 }

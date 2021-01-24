@@ -22,10 +22,11 @@
     <result column="PRINTRUN" jdbcType="INTEGER" property="printRun" />
     <result column="SCORE" jdbcType="VARCHAR" property="score" />
     <result column="LINKS" jdbcType="VARCHAR" property="links" />
-    <result column="IMG" jdbcType="BLOB" property="img" />
+<!--    <result column="IMG" jdbcType="BLOB" property="img" />-->
+    <result column="IMG" property="img" typeHandler="com.xavier.stamps.utils.SQLiteBlogTypeReadHandler"/>
     <result column="IMGNAME" jdbcType="VARCHAR" property="imgName" />
     <result column="COLLECTINGDATE" jdbcType="VARCHAR" property="collectingDate" />
-    <result column="img_link" property="imgLink"/>
+<!--    <result column="img_link" property="imgLink"/>-->
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
@@ -179,6 +180,13 @@
           max(substr(ID, 4, 9))
         from
           STAMPS)
+  </select>
+
+  <select id="getStampViaID" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from STAMPS
+    where ID = #{id,jdbcType=VARCHAR}
   </select>
 
 <!--  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">-->

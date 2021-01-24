@@ -19,4 +19,9 @@ public class StampsServiceImpl implements StampsService {
     public String queryMaxID() {
         return stampsMapper.queryMaxID();
     }
+
+    @Override
+    public Stamp getStampViaID(String id) {
+        return stampsMapper.getStampViaID(id);
+    }
 }

@@ -26,3 +26,4 @@ mybatis:
 logging:
   level:
     com.xavier.toolkit.mapper: debug
+    com.xavier.stamps.mapper: debug

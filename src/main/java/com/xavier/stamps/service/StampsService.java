@@ -6,4 +6,6 @@ public interface StampsService {
     void insertStampInfo(Stamp stamp);
 
     String queryMaxID();
+
+    Stamp getStampViaID(String id);
 }
