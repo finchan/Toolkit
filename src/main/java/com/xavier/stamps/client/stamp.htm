@@ -2,16 +2,6 @@
 	<head>
 		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 		<script>
-			function arrayBufferToBase64(buffer) {
-				let binary = '';
-				let bytes = new Uint8Array(buffer);
-				let len = bytes.byteLength;
-				for (let i = 0; i < len; i++) {
-					binary += String.fromCharCode(bytes[i]);
-				}
-				return window.btoa( binary );
-			}
-
 			function DBOperation() {
 				this.insertSingleStamp = function(link, id) {
 					let genUrl = "http://localhost:9090/insert_stamp?" + "link=" + link+"&id="+id;
@@ -76,19 +66,13 @@
 						method: "GET",
 						success: function(resultData) {
 							if(resultData.result) {
-								console.info(resultData);
-
-								let base64IMG = 'data:image/png;base64,' + arrayBufferToBase64(resultData.data.stampInfo.img);
-								console.log(base64IMG);
-								$("#siimg").attr("src", base64IMG);
-								$("#siid").html(resultData.data.stampInfo.id);
-								$("#sicountry").html(resultData.data.stampInfo.country);
-								$("#siname").html(resultData.data.stampInfo.name);
-								$("#siseries").html(resultData.data.stampInfo.series);
-								$("#sithemes").html(resultData.data.stampInfo.themes);
-								debugger;
+								imageDataPopulation(resultData);
+								$("#stamp_info").css("display", "block");
+								$("#stamp_info_no_records").css("display", "none");
 							} else {
-								alert("Failed!");
+								$("#stamp_info").css("display", "none");
+								$("#stamp_info_no_records").css("display", "block");
+								$("#siimg").attr("src","");
 							}
 						},
 						error: function(err) {
@@ -97,6 +81,16 @@
 						}
 					});
 				}
+			}
+
+			function imageDataPopulation(rd) {
+				let base64IMG = 'data:image/jpg;base64,' + rd.data.stampInfo.img;
+				$("#siimg").attr("src", base64IMG);
+				$("#siid").html(rd.data.stampInfo.id);
+				$("#sicountry").html(rd.data.stampInfo.country);
+				$("#siname").html(rd.data.stampInfo.name);
+				$("#siseries").html(rd.data.stampInfo.series);
+				$("#sithemes").html(rd.data.stampInfo.themes);
 			}
 
 			let dbOperation = new DBOperation();
@@ -121,6 +115,9 @@
 				});
 				$("#clearExistedStampID").on("click", function() {
 					dbOperation.clearText(["existedStampIDText"]);
+					$("#siimg").attr("src","");
+					$("#stamp_info_no_records").css("display","none");
+					$(".stamp_info table tr td:last-child div").html("");
 				});
 
 				$("#existedStampID").on("click", function() {
@@ -249,7 +246,7 @@
 				float:left;
 				padding: 10px;
 				height: 160px;
-				margin-right: 20px;
+				/*margin-right: 20px;*/
 				overflow: hidden;
 				border-right: 1px dashed #3fa6ff;
 				text-align: center;
@@ -267,11 +264,11 @@
 			}
 			.stamp_info {
 				float:left;
-				width: 414px;
+				width: 434px;
 			}
 			.stamp_info table{
 				table-layout: fixed;
-				width: 414px;
+				width: 434px;
 				
 			}
 			.stamp_info table tr td:first-child{
@@ -291,18 +288,25 @@
 				margin-right: 20px;
 				word-wrap:break-word;
 			}
+			.stamp_info_no_records {
+				float: left;
+				margin: 0 auto;
+				text-align: center;
+				display: none;
+				width:434px;
+				height: 178px;
+			}
+			.stamp_info_no_records div{
+				position: relative;
+				top: 35%;
+				color:#FE4365;
+				font-size: 30px;
+				text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
+			}
 		</style>
 	</head>
 	<body>
-	<!--icon sample
-		Close:
-		<span class="iconfont">&#xe724;</span>
-		Plus:
-		<span class="iconfont">&#xe728;</span>
-		Checked
-		<span class="iconfont">&#xe730;</span>
-	-->
-	<!--insert stamp info-->
+		<!--insert stamp info-->
 		<div class="panel_bottom_margin panel_top_margin panel_style">
 			<div class="fun_title">ADD STAMP INFO</div>
 			<div>
@@ -366,27 +370,30 @@
 				<div class="stamp_img">
 					<img id="siimg" src=""/>
 				</div>
-				<div class="stamp_info">
+				<div id="stamp_info_no_records" class="stamp_info_no_records">
+					<div>There's no records!</div>
+				</div>
+				<div class="stamp_info" id="stamp_info">
 					<table>
 						<tr>
 							<td>ID</td>
-							<td><div id="siid">1</div></td>
+							<td><div id="siid"></div></td>
 						</tr>
 						<tr>
-							<td>Country</div></td>
-							<td><div id="sicountry">2</div></td>
+							<td>Country</td>
+							<td><div id="sicountry"></div></td>
 						</tr>
 						<tr>
 							<td>Name</td>
-							<td><div id="siname">3</div></td>
+							<td><div id="siname"></div></td>
 						</tr>
 						<tr>
 							<td>Series</td>
-							<td><div id="siseries">4</div></td>
+							<td><div id="siseries"></div></td>
 						</tr>
 						<tr>
 							<td>Themes</td>
-							<td><div id="sithemes">5</div></td>
+							<td><div id="sithemes"></div></td>
 						</tr>
 					</table>
 				</div>

@@ -72,7 +72,7 @@ class StampsController {
             data.put("stampInfo", stamp);
             resultData.setData(data);
         }
-        //Base64 - "data:image/png;base64," - byte2Base64StringFun
+        //Base64 - "data:image/jpg;base64,"
         return resultData;
     }
 }
