@@ -26,8 +26,8 @@ $(function ($) {
     // Default attributes
     var defaults = {
       round         : true,
-      width         : 250,
-      height        : 250,
+      width         : 200,
+      height        : 200,
       background    : "#FFF",
       shadow        : "0 8px 17px 0 rgba(0, 0, 0, 0.2)",
       border        : "1px ridge #CF6B74",
