@@ -13,7 +13,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Åland Islands",
+    "name": "Aland Islands",
     "alpha-2": "AX",
     "alpha-3": "ALA",
     "country-code": "248",
@@ -338,7 +338,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Bolivia (Plurinational State of)",
+    "name": "Bolivia",
     "alpha-2": "BO",
     "alpha-3": "BOL",
     "country-code": "068",
@@ -349,19 +349,6 @@ var countries = [
     "region-code": "019",
     "sub-region-code": "419",
     "intermediate-region-code": "005"
-  },
-  {
-    "name": "Bonaire, Sint Eustatius and Saba",
-    "alpha-2": "BQ",
-    "alpha-3": "BES",
-    "country-code": "535",
-    "iso_3166-2": "ISO 3166-2:BQ",
-    "region": "Americas",
-    "sub-region": "Latin America and the Caribbean",
-    "intermediate-region": "Caribbean",
-    "region-code": "019",
-    "sub-region-code": "419",
-    "intermediate-region-code": "029"
   },
   {
     "name": "Bosnia and Herzegovina",
@@ -390,19 +377,6 @@ var countries = [
     "intermediate-region-code": "018"
   },
   {
-    "name": "Bouvet Island",
-    "alpha-2": "BV",
-    "alpha-3": "BVT",
-    "country-code": "074",
-    "iso_3166-2": "ISO 3166-2:BV",
-    "region": "Americas",
-    "sub-region": "Latin America and the Caribbean",
-    "intermediate-region": "South America",
-    "region-code": "019",
-    "sub-region-code": "419",
-    "intermediate-region-code": "005"
-  },
-  {
     "name": "Brazil",
     "alpha-2": "BR",
     "alpha-3": "BRA",
@@ -416,20 +390,7 @@ var countries = [
     "intermediate-region-code": "005"
   },
   {
-    "name": "British Indian Ocean Territory",
-    "alpha-2": "IO",
-    "alpha-3": "IOT",
-    "country-code": "086",
-    "iso_3166-2": "ISO 3166-2:IO",
-    "region": "Africa",
-    "sub-region": "Sub-Saharan Africa",
-    "intermediate-region": "Eastern Africa",
-    "region-code": "002",
-    "sub-region-code": "202",
-    "intermediate-region-code": "014"
-  },
-  {
-    "name": "Brunei Darussalam",
+    "name": "Brunei",
     "alpha-2": "BN",
     "alpha-3": "BRN",
     "country-code": "096",
@@ -479,19 +440,6 @@ var countries = [
     "region-code": "002",
     "sub-region-code": "202",
     "intermediate-region-code": "014"
-  },
-  {
-    "name": "Cabo Verde",
-    "alpha-2": "CV",
-    "alpha-3": "CPV",
-    "country-code": "132",
-    "iso_3166-2": "ISO 3166-2:CV",
-    "region": "Africa",
-    "sub-region": "Sub-Saharan Africa",
-    "intermediate-region": "Western Africa",
-    "region-code": "002",
-    "sub-region-code": "202",
-    "intermediate-region-code": "011"
   },
   {
     "name": "Cambodia",
@@ -611,7 +559,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Cocos (Keeling) Islands",
+    "name": "Cocos Keeling Islands",
     "alpha-2": "CC",
     "alpha-3": "CCK",
     "country-code": "166",
@@ -663,7 +611,7 @@ var countries = [
     "intermediate-region-code": "017"
   },
   {
-    "name": "Congo, Democratic Republic of the",
+    "name": "Democratic Republic of the Congo",
     "alpha-2": "CD",
     "alpha-3": "COD",
     "country-code": "180",
@@ -702,7 +650,7 @@ var countries = [
     "intermediate-region-code": "013"
   },
   {
-    "name": "Côte d'Ivoire",
+    "name": "Cote de Ivoire",
     "alpha-2": "CI",
     "alpha-3": "CIV",
     "country-code": "384",
@@ -741,7 +689,7 @@ var countries = [
     "intermediate-region-code": "029"
   },
   {
-    "name": "Curaçao",
+    "name": "Curacao",
     "alpha-2": "CW",
     "alpha-3": "CUW",
     "country-code": "531",
@@ -767,7 +715,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Czechia",
+    "name": "Czech Republic",
     "alpha-2": "CZ",
     "alpha-3": "CZE",
     "country-code": "203",
@@ -936,7 +884,7 @@ var countries = [
     "intermediate-region-code": "014"
   },
   {
-    "name": "Falkland Islands (Malvinas)",
+    "name": "Falkland Islands",
     "alpha-2": "FK",
     "alpha-3": "FLK",
     "country-code": "238",
@@ -949,7 +897,7 @@ var countries = [
     "intermediate-region-code": "005"
   },
   {
-    "name": "Faroe Islands",
+    "name": "Faroe",
     "alpha-2": "FO",
     "alpha-3": "FRO",
     "country-code": "234",
@@ -999,19 +947,6 @@ var countries = [
     "region-code": "150",
     "sub-region-code": "155",
     "intermediate-region-code": ""
-  },
-  {
-    "name": "French Guiana",
-    "alpha-2": "GF",
-    "alpha-3": "GUF",
-    "country-code": "254",
-    "iso_3166-2": "ISO 3166-2:GF",
-    "region": "Americas",
-    "sub-region": "Latin America and the Caribbean",
-    "intermediate-region": "South America",
-    "region-code": "019",
-    "sub-region-code": "419",
-    "intermediate-region-code": "005"
   },
   {
     "name": "French Polynesia",
@@ -1261,32 +1196,6 @@ var countries = [
     "intermediate-region-code": "029"
   },
   {
-    "name": "Heard Island and McDonald Islands",
-    "alpha-2": "HM",
-    "alpha-3": "HMD",
-    "country-code": "334",
-    "iso_3166-2": "ISO 3166-2:HM",
-    "region": "Oceania",
-    "sub-region": "Australia and New Zealand",
-    "intermediate-region": "",
-    "region-code": "009",
-    "sub-region-code": "053",
-    "intermediate-region-code": ""
-  },
-  {
-    "name": "Holy See",
-    "alpha-2": "VA",
-    "alpha-3": "VAT",
-    "country-code": "336",
-    "iso_3166-2": "ISO 3166-2:VA",
-    "region": "Europe",
-    "sub-region": "Southern Europe",
-    "intermediate-region": "",
-    "region-code": "150",
-    "sub-region-code": "039",
-    "intermediate-region-code": ""
-  },
-  {
     "name": "Honduras",
     "alpha-2": "HN",
     "alpha-3": "HND",
@@ -1365,7 +1274,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Iran (Islamic Republic of)",
+    "name": "Iran",
     "alpha-2": "IR",
     "alpha-3": "IRN",
     "country-code": "364",
@@ -1534,7 +1443,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Korea (Democratic People's Republic of)",
+    "name": "Democratic Peoples Republic of Korea",
     "alpha-2": "KP",
     "alpha-3": "PRK",
     "country-code": "408",
@@ -1547,7 +1456,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Korea, Republic of",
+    "name": "Republic of Korea",
     "alpha-2": "KR",
     "alpha-3": "KOR",
     "country-code": "410",
@@ -1586,7 +1495,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Lao People's Democratic Republic",
+    "name": "Lao",
     "alpha-2": "LA",
     "alpha-3": "LAO",
     "country-code": "418",
@@ -1872,7 +1781,7 @@ var countries = [
     "intermediate-region-code": "013"
   },
   {
-    "name": "Micronesia (Federated States of)",
+    "name": "Micronesia",
     "alpha-2": "FM",
     "alpha-3": "FSM",
     "country-code": "583",
@@ -1885,7 +1794,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Moldova, Republic of",
+    "name": "Moldova",
     "alpha-2": "MD",
     "alpha-3": "MDA",
     "country-code": "498",
@@ -2210,7 +2119,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Palestine, State of",
+    "name": "Palestine",
     "alpha-2": "PS",
     "alpha-3": "PSE",
     "country-code": "275",
@@ -2353,19 +2262,6 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Réunion",
-    "alpha-2": "RE",
-    "alpha-3": "REU",
-    "country-code": "638",
-    "iso_3166-2": "ISO 3166-2:RE",
-    "region": "Africa",
-    "sub-region": "Sub-Saharan Africa",
-    "intermediate-region": "Eastern Africa",
-    "region-code": "002",
-    "sub-region-code": "202",
-    "intermediate-region-code": "014"
-  },
-  {
     "name": "Romania",
     "alpha-2": "RO",
     "alpha-3": "ROU",
@@ -2379,7 +2275,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Russian Federation",
+    "name": "Russian",
     "alpha-2": "RU",
     "alpha-3": "RUS",
     "country-code": "643",
@@ -2405,7 +2301,7 @@ var countries = [
     "intermediate-region-code": "014"
   },
   {
-    "name": "Saint Barthélemy",
+    "name": "Saint Barthelemy",
     "alpha-2": "BL",
     "alpha-3": "BLM",
     "country-code": "652",
@@ -2418,7 +2314,7 @@ var countries = [
     "intermediate-region-code": "029"
   },
   {
-    "name": "Saint Helena, Ascension and Tristan da Cunha",
+    "name": "Saint Helena",
     "alpha-2": "SH",
     "alpha-3": "SHN",
     "country-code": "654",
@@ -2457,7 +2353,7 @@ var countries = [
     "intermediate-region-code": "029"
   },
   {
-    "name": "Saint Martin (French part)",
+    "name": "Saint Martin",
     "alpha-2": "MF",
     "alpha-3": "MAF",
     "country-code": "663",
@@ -2468,19 +2364,6 @@ var countries = [
     "region-code": "019",
     "sub-region-code": "419",
     "intermediate-region-code": "029"
-  },
-  {
-    "name": "Saint Pierre and Miquelon",
-    "alpha-2": "PM",
-    "alpha-3": "SPM",
-    "country-code": "666",
-    "iso_3166-2": "ISO 3166-2:PM",
-    "region": "Americas",
-    "sub-region": "Northern America",
-    "intermediate-region": "",
-    "region-code": "019",
-    "sub-region-code": "021",
-    "intermediate-region-code": ""
   },
   {
     "name": "Saint Vincent and the Grenadines",
@@ -2611,19 +2494,6 @@ var countries = [
     "region-code": "142",
     "sub-region-code": "035",
     "intermediate-region-code": ""
-  },
-  {
-    "name": "Sint Maarten (Dutch part)",
-    "alpha-2": "SX",
-    "alpha-3": "SXM",
-    "country-code": "534",
-    "iso_3166-2": "ISO 3166-2:SX",
-    "region": "Americas",
-    "sub-region": "Latin America and the Caribbean",
-    "intermediate-region": "Caribbean",
-    "region-code": "019",
-    "sub-region-code": "419",
-    "intermediate-region-code": "029"
   },
   {
     "name": "Slovakia",
@@ -2769,19 +2639,6 @@ var countries = [
     "intermediate-region-code": "005"
   },
   {
-    "name": "Svalbard and Jan Mayen",
-    "alpha-2": "SJ",
-    "alpha-3": "SJM",
-    "country-code": "744",
-    "iso_3166-2": "ISO 3166-2:SJ",
-    "region": "Europe",
-    "sub-region": "Northern Europe",
-    "intermediate-region": "",
-    "region-code": "150",
-    "sub-region-code": "154",
-    "intermediate-region-code": ""
-  },
-  {
     "name": "Sweden",
     "alpha-2": "SE",
     "alpha-3": "SWE",
@@ -2808,7 +2665,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Syrian Arab Republic",
+    "name": "Syria",
     "alpha-2": "SY",
     "alpha-3": "SYR",
     "country-code": "760",
@@ -2821,7 +2678,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Taiwan, Province of China",
+    "name": "Taiwan",
     "alpha-2": "TW",
     "alpha-3": "TWN",
     "country-code": "158",
@@ -2847,7 +2704,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Tanzania, United Republic of",
+    "name": "Tanzania",
     "alpha-2": "TZ",
     "alpha-3": "TZA",
     "country-code": "834",
@@ -3042,7 +2899,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "United Kingdom of Great Britain and Northern Ireland",
+    "name": "United Kingdom",
     "alpha-2": "GB",
     "alpha-3": "GBR",
     "country-code": "826",
@@ -3055,7 +2912,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "United States of America",
+    "name": "United States",
     "alpha-2": "US",
     "alpha-3": "USA",
     "country-code": "840",
@@ -3065,19 +2922,6 @@ var countries = [
     "intermediate-region": "",
     "region-code": "019",
     "sub-region-code": "021",
-    "intermediate-region-code": ""
-  },
-  {
-    "name": "United States Minor Outlying Islands",
-    "alpha-2": "UM",
-    "alpha-3": "UMI",
-    "country-code": "581",
-    "iso_3166-2": "ISO 3166-2:UM",
-    "region": "Oceania",
-    "sub-region": "Micronesia",
-    "intermediate-region": "",
-    "region-code": "009",
-    "sub-region-code": "057",
     "intermediate-region-code": ""
   },
   {
@@ -3120,7 +2964,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Venezuela (Bolivarian Republic of)",
+    "name": "Venezuela",
     "alpha-2": "VE",
     "alpha-3": "VEN",
     "country-code": "862",
@@ -3146,7 +2990,7 @@ var countries = [
     "intermediate-region-code": ""
   },
   {
-    "name": "Virgin Islands (British)",
+    "name": "British Virgin Islands",
     "alpha-2": "VG",
     "alpha-3": "VGB",
     "country-code": "092",
@@ -3159,7 +3003,7 @@ var countries = [
     "intermediate-region-code": "029"
   },
   {
-    "name": "Virgin Islands (U.S.)",
+    "name": "US Virgin Islands",
     "alpha-2": "VI",
     "alpha-3": "VIR",
     "country-code": "850",

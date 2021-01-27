@@ -184,6 +184,9 @@ body{
     font-size: 30px;
     text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
 }
-.inputbox320{
-    width:320px;
+.inputbox360{
+    width:360px;
+}
+.easy-autocomplete input{
+    color: #FFFFFF;
 }

@@ -79,6 +79,13 @@ function DBOperation() {
         }
 }
 
+function imageExists(image_url){
+    var http = new XMLHttpRequest();
+    http.open('HEAD', image_url, false);
+    http.send();
+    return http.status != 404;
+}
+
 function imageDataPopulation(rd) {
     let base64IMG = 'data:image/jpeg;base64,' + rd.data.stampInfo.img;
     $("#siimg").attr("src", base64IMG);
@@ -92,7 +99,9 @@ function imageDataPopulation(rd) {
 let dbOperation = new DBOperation();
 window.onload = function() {
     $("#countryCode").on("click", function() {
-        console.info("Set Stamp Country Code");
+        $("#id").val($("#countryCodeText").val());
+        $("#latestIDText").val($("#countryCodeText").val());
+        $("#existedStampIDText").val($("#countryCodeText").val());
     });
     $("#addStamp").on("click", function() {
         let link = $.trim($("#link").val());
@@ -128,9 +137,28 @@ window.onload = function() {
     });
     $("#siimg").blowup();
 
-    $("#countryCodeText").autocomplete({
-        source: countries,
-        minLength:2
-    });
+    let options = {
+        data: countries,
+        dataType: "json",
+        getValue: "name",
+        template: {
+            type: "custom",
+            method: function(elementValue, element) {
+                return "<img class='eac-icon' style='display:block;float:left;margin-right:7px;' src='flags/16/" + element["name"].split(' ').join('-') + ".png'/>" + "<span style='line-height:16px;'>"+element["alpha-3"] + " - " + elementValue+"</span>";
+            }
+        },
+        list: {
+            match: {
+                enabled: true
+            },
+            onSelectItemEvent: function() {
+                let value = $("#countryCodeText").getSelectedItemData()["alpha-3"];
+                $("#countryCodeText").val(value).trigger("change");
+            }
+        }
+
+    };
+
+    $("#countryCodeText").easyAutocomplete(options);
 
 };
