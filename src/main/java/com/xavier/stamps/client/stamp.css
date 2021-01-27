@@ -1,0 +1,189 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('iconfont.eot');
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+    url('iconfont.woff2') format('woff2'),
+    url('iconfont.woff') format('woff'),
+    url('iconfont.ttf') format('truetype'),
+    url('iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body{
+    margin: 0 auto;
+}
+.button {
+    height:30px;
+    background-color:#1ABC9C;
+    color:#FFFFFF;
+    border:none;
+    border-radius:30px;
+}
+.id{
+    border:none;
+    background-color:#333333;
+    color: #ffffff;
+    border-bottom:2px ridge #1ABC9C;
+    /*background-color:#ffaa15;*/
+    /*color: #334755;*/
+    /*border-bottom:2px ridge #f62a66;*/
+    font-weight: bold;
+    height:30px;
+    width: 120px;
+    padding-left: 10px;
+    margin-right: 10px;
+    -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 30%,rgba(220,35,50,.5));
+}
+.clearbutton {
+    height:30px;
+    background-color:#666666;
+    color:#FFFFFF;
+    border:none;
+    border-radius:30px;
+}
+.id_disabled{
+    border:none;
+    border-bottom:2px ridge #1ABC9C;
+    background-color:#333333;
+    color: #ffffff;
+    /*background-color:#ffaa15;*/
+    /*color: #334755;*/
+    /*border-bottom:2px ridge #f62a66;*/
+    font-weight: bold;
+    height:30px;
+    width: 120px;
+    padding-left: 10px;
+    -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 30%,rgba(220,35,50,.5));
+}
+.link{
+    border:none;
+    border-bottom:2px ridge #1ABC9C;
+    background-color:#333333;
+    color: #ffffff;
+    /*background-color:#ffaa15;*/
+    /*color: #334755;*/
+    /*border-bottom:2px ridge #f62a66;*/
+    font-weight: bold;
+    height:30px;
+    width: 240px;
+    padding-left: 10px;
+    -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 30%,rgba(220,35,50,.5));
+}
+.tdbox{
+    float: left;
+    margin-left: 10px;
+}
+.clearfloat{
+    clear:both;
+}
+.fun_title{
+    margin-left:180px;
+    padding-left:10px;
+    border-left: 2px dashed #3592C4;
+    margin-bottom: 10px;
+    font-weight: bold;
+    height:30px;
+    margin-top:20px;
+}
+.left_side_button{
+    width: 170px;
+}
+.panel_bottom_margin {
+    margin-bottom: 30px;
+}
+.panel_top_margin{
+    margin-top:30px;
+}
+.clean_margin_left {
+    margin-left:0;
+}
+.change_margin_left {
+    margin-left: 12px;
+}
+.right_side_button{
+    margin-left:20px
+}
+.panel_style{
+    border: 1px ridge #333333;
+    width:755px;
+    height: 130px;
+    margin-left: 30px;
+}
+.float_right {
+    float: right;
+    margin-right: 13px;
+    margin-left: 0;
+}
+.seperator_dash{
+    margin-top: 30px;
+    border: none;
+    border-bottom: 1px dashed #3fa6ff;
+}
+.stamp_img {
+    width: 300px;
+    float:left;
+    padding: 10px;
+    height: 160px;
+    overflow: hidden;
+    border-right: 1px dashed #3fa6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.stamp_img img{
+    display: block;
+    max-width: 280px;
+    max-height: 140px;
+    width: expression(this.width > 280 ? "280px" : this.width);
+    height: expression(this.height > 140 ? "140px" : this.height);
+    margin: 0 auto;
+}
+.stamp_info {
+    float:left;
+    width: 434px;
+}
+.stamp_info table{
+    table-layout: fixed;
+    width: 434px;
+
+}
+.stamp_info table tr td:first-child{
+    font-size: 16px;
+    width: 65px;
+    border-bottom: 1px ridge #1ABC9C;
+}
+.stamp_info table tr td:last-child{
+    font-size: 13px;
+    border-bottom: 1px ridge #1ABC9C;
+}
+.stamp_info td{
+    word-wrap:break-word;
+}
+.stamp_info td div {
+    margin-left: 20px;
+    margin-right: 20px;
+    word-wrap:break-word;
+}
+.stamp_info_no_records {
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+    display: none;
+    width:434px;
+    height: 178px;
+}
+.stamp_info_no_records div{
+    position: relative;
+    top: 35%;
+    color:#FE4365;
+    font-size: 30px;
+    text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
+}
+.inputbox320{
+    width:320px;
+}

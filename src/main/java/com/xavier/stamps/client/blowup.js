@@ -82,7 +82,6 @@ $(function ($) {
       // Lens position coordinates
       var lensX = e.pageX - $options.width / 2;
       var lensY = e.pageY - $options.height / 2;
-      console.info("lensX - " + lensX + " lensY - " + lensY);
       // Relative coordinates of image
       var relX = e.pageX - $(this).offset().left;
       var relY = e.pageY - $(this).offset().top;

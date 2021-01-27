@@ -1,4 +1,4 @@
-countries = [
+var countries = [
   {
     "name": "Afghanistan",
     "alpha-2": "AF",

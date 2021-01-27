@@ -1,403 +1,127 @@
 <html>
 	<head>
-		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.js"></script>
+		<script src="flags/countries.js"></script>
+		<script src="jquery.js"></script>
+		<script src="jquery-ui.js"></script>
 		<script src="blowup.js"></script>
-		<script>
-			function DBOperation() {
-				this.insertSingleStamp = function(link, id) {
-					let genUrl = "http://localhost:9090/insert_stamp?" + "link=" + link+"&id="+id;
-					$.ajax({
-						url: genUrl,
-						dataType: "json",
-						method: "PUT",
-						success: function(resultData) {
-							if(resultData.result) {
-								console.info(resultData);
-								alert("Done!")
-							} else {
-								alert("Failed!");
-							}
-						},
-						error: function(err) {
-							console.info(err);
-							alert("Failed!");
-						}
-					});
-				},
-				this.queryMaxID = function() {
-					let genUrl = "http://localhost:9090/query_max_id";
-					$.ajax({
-						url: genUrl,
-						dataType: "json",
-						method: "GET",
-						success: function(resultData) {
-							if(resultData.result) {
-								console.info(resultData);
-								$("#latestIDText").val(resultData.data.maxID);
-							} else {
-								alert("Failed!");
-							}
-						},
-						error: function(err) {
-							console.info(err);
-							alert("Failed!");
-						}
-					});
-				}, 
-				this.clearText = function(ids) {
-					if(ids == null) {
-						alert("Arguments are empty!");
-						return;
-					}
-					for(var i = 0; i < ids.length; i++) {
-						let id = "#"+ ids[i];
-						$(id).val("");
-					}
-				},
-				this.queryStampByID = function() {
-					if($.trim($("#existedStampIDText").val()) == "") {
-						alert("ID is empty!");
-						return;
-					}
-					let genUrl = "http://localhost:9090/get_stamp_by_id/?";
-					genUrl += ("id="+$.trim($("#existedStampIDText").val()));
-					$.ajax({
-						url: genUrl,
-						dataType: "json",
-						method: "GET",
-						success: function(resultData) {
-							if(resultData.result) {
-								imageDataPopulation(resultData);
-								$("#stamp_info").css("display", "block");
-								$("#stamp_info_no_records").css("display", "none");
-							} else {
-								$("#stamp_info").css("display", "none");
-								$("#stamp_info_no_records").css("display", "block");
-								$("#siimg").attr("src","");
-							}
-						},
-						error: function(err) {
-							console.info(err);
-							alert("Failed!");
-						}
-					});
-				}
-			}
-
-			function imageDataPopulation(rd) {
-				let base64IMG = 'data:image/jpeg;base64,' + rd.data.stampInfo.img;
-				$("#siimg").attr("src", base64IMG);
-				$("#siid").html(rd.data.stampInfo.id);
-				$("#sicountry").html(rd.data.stampInfo.country);
-				$("#siname").html(rd.data.stampInfo.name);
-				$("#siseries").html(rd.data.stampInfo.series);
-				$("#sithemes").html(rd.data.stampInfo.themes);
-			}
-
-			let dbOperation = new DBOperation();
-			window.onload = function() {
-				$("#addStamp").on("click", function() {
-					let link = $.trim($("#link").val());
-					let id = $.trim($("#id").val());
-					dbOperation.insertSingleStamp(link,id);
-				});
-
-				$("#latestID").on("click", function() {
-					let link = $.trim($("#link").val());
-					let id = $.trim($("#id").val());
-					dbOperation.queryMaxID();
-				});
-
-				$("#clearStampInfo").on("click", function() {
-					dbOperation.clearText(["id", "link"]);
-				});
-				$("#clearLatestID").on("click", function() {
-					dbOperation.clearText(["latestIDText"]);
-				});
-				$("#clearExistedStampID").on("click", function() {
-					dbOperation.clearText(["existedStampIDText"]);
-					$("#siimg").attr("src","");
-					$("#stamp_info_no_records").css("display","none");
-					$(".stamp_info table tr td:last-child div").html("");
-				});
-
-				$("#existedStampID").on("click", function() {
-					let id = $.trim($("#existedStampIDText").val());
-					dbOperation.queryStampByID(id);
-				});
-				$("#siimg").blowup();
-			};
-		</script>
-		<style type="text/css">
-			@font-face {
-			  font-family: 'iconfont';
-			  src: url('iconfont.eot');
-			  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
-				  url('iconfont.woff2') format('woff2'),
-				  url('iconfont.woff') format('woff'),
-				  url('iconfont.ttf') format('truetype'),
-				  url('iconfont.svg#iconfont') format('svg');
-			}
-			.iconfont {
-			  font-family: "iconfont" !important;
-			  font-size: 16px;
-			  font-style: normal;
-			  -webkit-font-smoothing: antialiased;
-			  -moz-osx-font-smoothing: grayscale;
-			}
-			body{
-				margin: 0 auto;
-			}
-			.button {
-				height:30px;
-				background-color:#1ABC9C;
-				color:#FFFFFF;
-				border:none;
-				border-radius:30px;
-			}
-			.clearbutton {
-				height:30px;
-				background-color:#999999;
-				color:#FFFFFF;
-				border:none;
-				border-radius:30px;
-			}
-			.id{
-				border:none;
-				border-bottom:2px ridge #1ABC9C;
-				background-color:#333333;
-				color: #ffffff;
-				height:30px;
-				width: 120px;
-				padding-left: 10px;
-				margin-right: 10px;
-				-webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 30%,rgba(220,35,50,.5));
-			}
-			.id_disabled{
-				border:none;
-				border-bottom:2px ridge #1ABC9C;
-				background-color:#333333;
-				color: #ffffff;
-				height:30px;
-				width: 120px;
-				padding-left: 10px;
-				-webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 30%,rgba(220,35,50,.5));
-			}
-			.link{
-				border:none;
-				border-bottom:2px ridge #1ABC9C;
-				background-color:#333333;
-				color: #ffffff;
-				height:30px;
-				width: 240px;
-				padding-left: 10px;
-				-webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 30%,rgba(220,35,50,.5));
-			}
-			.tdbox{
-				float: left;
-				margin-left: 10px;
-			}
-			.clearfloat{
-				clear:both;
-			}
-			.fun_title{
-				margin-left:180px;
-				padding-left:10px;
-				border-left: 2px dashed #3592C4;
-				margin-bottom: 10px;
-				font-weight: bold;
-				height:30px;
-				margin-top:20px;
-			}
-			.left_side_button{
-				width: 170px;
-			}
-			.panel_bottom_margin {
-				margin-bottom: 30px;
-			}
-			.panel_top_margin{
-				margin-top:30px;
-			}
-			.clean_margin_left {
-				margin-left:0;
-			}
-			.change_margin_left {
-				margin-left: 12px;
-			}
-			.right_side_button{
-				margin-left:20px
-			}
-			.panel_style{
-				border: 1px ridge #333333;
-				width:755px;
-				height: 130px;
-				margin-left: 30px;
-			}
-			.float_right {
-				float: right;
-				margin-right: 13px;
-				margin-left: 0;
-			}
-			.seperator_dash{
-				margin-top: 30px;
-				border: none;
-				border-bottom: 1px dashed #3fa6ff;
-			}
-			.stamp_img {
-				width: 300px;
-				float:left;
-				padding: 10px;
-				height: 160px;
-				overflow: hidden;
-				border-right: 1px dashed #3fa6ff;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-			.stamp_img img{
-				display: block;
-				max-width: 280px;
-				max-height: 140px;
-				width: expression(this.width > 280 ? "280px" : this.width);
-				height: expression(this.height > 140 ? "140px" : this.height);
-				margin: 0 auto;
-			}
-			.stamp_info {
-				float:left;
-				width: 434px;
-			}
-			.stamp_info table{
-				table-layout: fixed;
-				width: 434px;
-				
-			}
-			.stamp_info table tr td:first-child{
-				font-size: 16px;
-				width: 65px;
-				border-bottom: 1px ridge #1ABC9C;
-			}
-			.stamp_info table tr td:last-child{
-				font-size: 13px;
-				border-bottom: 1px ridge #1ABC9C;
-			}
-			.stamp_info td{
-				word-wrap:break-word;
-			}
-			.stamp_info td div {
-				margin-left: 20px;
-				margin-right: 20px;
-				word-wrap:break-word;
-			}
-			.stamp_info_no_records {
-				float: left;
-				margin: 0 auto;
-				text-align: center;
-				display: none;
-				width:434px;
-				height: 178px;
-			}
-			.stamp_info_no_records div{
-				position: relative;
-				top: 35%;
-				color:#FE4365;
-				font-size: 30px;
-				text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
-			}
-		</style>
+		<script src="stamp.js"></script>
+		<link href="jquery-ui.css" rel="stylesheet" type="text/css" />
+		<link href="stamp.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 	</head>
 	<body>
-		<!--insert stamp info-->
-		<div class="panel_bottom_margin panel_top_margin panel_style">
-			<div class="fun_title">ADD STAMP INFO</div>
-			<div>
+		<div class="left_panel">
+			<!--Get Country code -->
+			<div class="panel_bottom_margin panel_style">
+				<div class="fun_title">GET Country Code</div>
 				<div class="tdbox left_side_button">
-					<button class="button" type="button" id="addStamp">
-						<span class="iconfont">&#xe728;</span> Add a New Stamp
+					<button class="button" type="button" id="countryCode"/>
+						<span class="iconfont">&#xe7a2;</span> Get Country Code
 					</button>
 				</div>
 				<div class="tdbox change_margin_left">
-					<input type="text" value="" class="id" id="id" placeholder="Please input ID:"/>
-				</div>
-				<div class="tdbox">
-					<strong>- &nbsp;</strong> <input type="text" class="link" value="" id="link" placeholder="Please input stamp link:"/>
+					<input type="text" class="id_disabled inputbox320" value="" id="countryCodeText" placeholder="Please input Country Name to get Country Code:"/>
 				</div>
 				<div class="tdbox right_side_button float_right">
-					<button class="clearbutton" type="button" id="clearStampInfo">
-						<span class="iconfont">&#xe724;</span> Clear Stamp Info
+					<button class="clearbutton" type="button" id="clearCountryCode">
+						<span class="iconfont">&#xe523;</span> Clear Country Code
 					</button>
 				</div>
 				<div class="clearfloat"></div>
 			</div>
-		</div>
-		<!--Get latest code -->
-		<div class="panel_bottom_margin panel_style">
-			<div class="fun_title">GET LATEST ID</div>
-			<div class="tdbox left_side_button">
-				<button class="button" type="button" id="latestID"/>
-					<span class="iconfont">&#xe730;</span> Get latest stamp ID
-				</button>
-			</div>
-			<div class="tdbox change_margin_left">
-				<input type="text" class="id_disabled" value="" id="latestIDText" placeholder="Please input ID:"/>
-			</div>
-			<div class="tdbox right_side_button float_right">
-				<button class="clearbutton" type="button" id="clearLatestID">
-					<span class="iconfont">&#xe724;</span> Clear Latest ID
-				</button>
-			</div>
-			<div class="clearfloat"></div>
-		</div>
-		<!--Check existed stamp by ID-->
-		<div class="panel_bottom_margin panel_style" style="height: 300px;">
-			<div class="fun_title">CHECK EXISTED STAMP BY ID</div>
-			<div class="tdbox left_side_button">
-				<button class="button" type="button" id="existedStampID" >
-					<span class="iconfont">&#xe730;</span> Get existed stamp ID
-				</button>
-			</div>
-			<div class="tdbox change_margin_left">
-				<input type="text" class="id_disabled" value="" id="existedStampIDText" placeholder="Please input ID:"/>
-			</div>
-			<div class="tdbox right_side_button float_right">
-				<button class="clearbutton" type="button" id="clearExistedStampID" >
-					<span class="iconfont">&#xe724;</span> Clear Existed Stamp ID
-				</button>
-			</div>
-			<div class="clearfloat"></div>
-			<div class="seperator_dash"></div>
-			<!--Stamp INFO-->
-			<div>
-				<div class="stamp_img">
-					<img id="siimg" src=""/>
+			<!--insert stamp info-->
+			<div class="panel_bottom_margin panel_top_margin panel_style">
+				<div class="fun_title">ADD STAMP INFO</div>
+				<div>
+					<div class="tdbox left_side_button">
+						<button class="button" type="button" id="addStamp">
+							<span class="iconfont">&#xe531;</span> Add a New Stamp
+						</button>
+					</div>
+					<div class="tdbox change_margin_left">
+						<input type="text" value="" class="id" id="id" placeholder="Please input ID:"/>
+					</div>
+					<div class="tdbox">
+						<strong>- &nbsp;</strong> <input type="text" class="link" value="" id="link" placeholder="Please input stamp link:"/>
+					</div>
+					<div class="tdbox right_side_button float_right">
+						<button class="clearbutton" type="button" id="clearStampInfo">
+							<span class="iconfont">&#xe523;</span> Clear Stamp Info
+						</button>
+					</div>
+					<div class="clearfloat"></div>
 				</div>
-				<div id="stamp_info_no_records" class="stamp_info_no_records">
-					<div>There's no records!</div>
+			</div>
+			<!--Get latest code -->
+			<div class="panel_bottom_margin panel_style">
+				<div class="fun_title">GET LATEST ID</div>
+				<div class="tdbox left_side_button">
+					<button class="button" type="button" id="latestID"/>
+					<span class="iconfont">&#xe7a2;</span> Get latest stamp ID
+					</button>
 				</div>
-				<div class="stamp_info" id="stamp_info">
-					<table>
-						<tr>
-							<td>ID</td>
-							<td><div id="siid"></div></td>
-						</tr>
-						<tr>
-							<td>Country</td>
-							<td><div id="sicountry"></div></td>
-						</tr>
-						<tr>
-							<td>Name</td>
-							<td><div id="siname"></div></td>
-						</tr>
-						<tr>
-							<td>Series</td>
-							<td><div id="siseries"></div></td>
-						</tr>
-						<tr>
-							<td>Themes</td>
-							<td><div id="sithemes"></div></td>
-						</tr>
-					</table>
+				<div class="tdbox change_margin_left">
+					<input type="text" class="id_disabled" value="" id="latestIDText" placeholder="Please input ID:"/>
+				</div>
+				<div class="tdbox right_side_button float_right">
+					<button class="clearbutton" type="button" id="clearLatestID">
+						<span class="iconfont">&#xe523;</span> Clear Latest ID
+					</button>
 				</div>
 				<div class="clearfloat"></div>
+			</div>
+			<!--Check existed stamp by ID-->
+			<div class="panel_bottom_margin panel_style" style="height: 300px;">
+				<div class="fun_title">CHECK EXISTED STAMP BY ID</div>
+				<div class="tdbox left_side_button">
+					<button class="button" type="button" id="existedStampID" >
+						<span class="iconfont">&#xe7a2;</span> Get existed stamp ID
+					</button>
+				</div>
+				<div class="tdbox change_margin_left">
+					<input type="text" class="id_disabled" value="" id="existedStampIDText" placeholder="Please input ID:"/>
+				</div>
+				<div class="tdbox right_side_button float_right">
+					<button class="clearbutton" type="button" id="clearExistedStampID" >
+						<span class="iconfont">&#xe523;</span> Clear Existed Stamp ID
+					</button>
+				</div>
+				<div class="clearfloat"></div>
+				<div class="seperator_dash"></div>
+				<!--Stamp INFO-->
+				<div>
+					<div class="stamp_img">
+						<img id="siimg" src=""/>
+					</div>
+					<div id="stamp_info_no_records" class="stamp_info_no_records">
+						<div>There's no records!</div>
+					</div>
+					<div class="stamp_info" id="stamp_info">
+						<table>
+							<tr>
+								<td>ID</td>
+								<td><div id="siid"></div></td>
+							</tr>
+							<tr>
+								<td>Country</td>
+								<td><div id="sicountry"></div></td>
+							</tr>
+							<tr>
+								<td>Name</td>
+								<td><div id="siname"></div></td>
+							</tr>
+							<tr>
+								<td>Series</td>
+								<td><div id="siseries"></div></td>
+							</tr>
+							<tr>
+								<td>Themes</td>
+								<td><div id="sithemes"></div></td>
+							</tr>
+						</table>
+					</div>
+					<div class="clearfloat"></div>
+				</div>
 			</div>
 		</div>
 	</body>
