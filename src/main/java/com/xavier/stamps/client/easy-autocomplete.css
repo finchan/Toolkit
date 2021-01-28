@@ -249,7 +249,9 @@
   z-index: 2;
 }
 .easy-autocomplete-container ul {
-  background: none repeat scroll 0 0 #ffffff;
+  background: url("ulimg.png") no-repeat fixed 0 0 rgba(255, 255, 255, 0.8);
+  /*background-image: url(ulimg.jpg);*/
+
   border-top: 1px dotted #ccc;
   display: none;
   margin-top: 0;
@@ -260,7 +262,7 @@
 }
 .easy-autocomplete-container ul li, .easy-autocomplete-container ul .eac-category {
   background: inherit;
-  border-color: #ccc;
+  border-color: #CCC;
   border-image: none;
   border-style: solid;
   border-width: 0 1px;
@@ -274,7 +276,8 @@
   border-width: 0 1px 1px;
 }
 .easy-autocomplete-container ul li.selected {
-  background: none repeat scroll 0 0 #ebebeb;
+  /*#ebebeb*/
+  background: none repeat scroll 0 0 #e1dc6b;
   cursor: pointer;
 }
 .easy-autocomplete-container ul li.selected div {

@@ -144,7 +144,14 @@ window.onload = function() {
         template: {
             type: "custom",
             method: function(elementValue, element) {
-                return "<img class='eac-icon' style='display:block;float:left;margin-right:7px;' src='flags/16/" + element["name"].split(' ').join('-') + ".png'/>" + "<span style='line-height:16px;'>"+element["alpha-3"] + " - " + elementValue+"</span>";
+                return "<img class='eac-icon' style='display:block;float:left;margin-right:7px;' " +
+                    "src='flags/16/" + element["name"].split(' ').join('-') + ".png'/>" +
+                    "<span style='line-height:16px;'>" +  elementValue +
+                    "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✿&nbsp;<strong style='color:#D21856;'>" +
+                    element["alpha-3"] + "</strong> / " + element["alpha-2"] + " / " + element["country-code"] + " (Alpha-3/2/C-C)" +
+                    "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;❀&nbsp;" +
+                    element["sub-region"] + ", " +element["region"]  +
+                    "</span>";
             }
         },
         list: {
@@ -152,6 +159,10 @@ window.onload = function() {
                 enabled: true
             },
             onSelectItemEvent: function() {
+                let value = $("#countryCodeText").getSelectedItemData()["alpha-3"];
+                $("#countryCodeText").val(value).trigger("change");
+            },
+            onKeyEnterEvent: function() {
                 let value = $("#countryCodeText").getSelectedItemData()["alpha-3"];
                 $("#countryCodeText").val(value).trigger("change");
             }
