@@ -11,118 +11,124 @@
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 	</head>
 	<body>
-		<div class="left_panel">
-			<!--Set Country code -->
-			<div class="panel_bottom_margin panel_style">
-				<div class="fun_title">GET/SET Country Code</div>
-				<div class="tdbox left_side_button">
-					<button class="button" type="button" id="countryCode"/>
-						<span class="iconfont">&#xe7a2;</span> Set Country Code
-					</button>
-				</div>
-				<div class="tdbox change_margin_left">
-					<input type="text" class="id_disabled inputbox360" value="" id="countryCodeText" placeholder="Please input Country Name to get Country Code:"/>
-				</div>
-				<div class="tdbox right_side_button float_right">
-					<button class="clearbutton" type="button" id="clearCountryCode">
-						<span class="iconfont">&#xe523;</span> Clear Country Code
-					</button>
-				</div>
-				<div class="clearfloat"></div>
-			</div>
-			<!--insert stamp info-->
-			<div class="panel_bottom_margin panel_top_margin panel_style">
-				<div class="fun_title">ADD STAMP INFO</div>
-				<div>
+		<div class="container">
+			<div class="left_panel">
+				<!--Set Country code -->
+				<div class="panel_bottom_margin panel_style">
+					<div class="fun_title">GET/SET Country Code</div>
 					<div class="tdbox left_side_button">
-						<button class="button" type="button" id="addStamp">
-							<span class="iconfont">&#xe531;</span> Add a New Stamp
+						<button class="button" type="button" id="countryCode"/>
+						<span class="iconfont">&#xe7a2;</span> Set Country Code
 						</button>
 					</div>
 					<div class="tdbox change_margin_left">
-						<input type="text" value="" class="id" id="id" placeholder="Please input ID:"/>
-					</div>
-					<div class="tdbox">
-						<strong>- &nbsp;</strong> <input type="text" class="link" value="" id="link" placeholder="Please input stamp link:"/>
+						<input type="text" class="id_disabled inputbox360" value="" id="countryCodeText" placeholder="Please input Country Name to get Country Code:"/>
 					</div>
 					<div class="tdbox right_side_button float_right">
-						<button class="clearbutton" type="button" id="clearStampInfo">
-							<span class="iconfont">&#xe523;</span> Clear Stamp Info
+						<button class="clearbutton" type="button" id="clearCountryCode">
+							<span class="iconfont">&#xe523;</span> Clear Country Code
 						</button>
 					</div>
 					<div class="clearfloat"></div>
 				</div>
-			</div>
-			<!--Get latest code -->
-			<div class="panel_bottom_margin panel_style">
-				<div class="fun_title">GET LATEST ID</div>
-				<div class="tdbox left_side_button">
-					<button class="button" type="button" id="latestID"/>
-					<span class="iconfont">&#xe7a2;</span> Get latest stamp ID
-					</button>
-				</div>
-				<div class="tdbox change_margin_left">
-					<input type="text" class="id_disabled" value="" id="latestIDText" placeholder="Please input ID:"/>
-				</div>
-				<div class="tdbox right_side_button float_right">
-					<button class="clearbutton" type="button" id="clearLatestID">
-						<span class="iconfont">&#xe523;</span> Clear Latest ID
-					</button>
-				</div>
-				<div class="clearfloat"></div>
-			</div>
-			<!--Check existed stamp by ID-->
-			<div class="panel_bottom_margin panel_style" style="height: 300px;">
-				<div class="fun_title">CHECK EXISTED STAMP BY ID</div>
-				<div class="tdbox left_side_button">
-					<button class="button" type="button" id="existedStampID" >
-						<span class="iconfont">&#xe7a2;</span> Get existed stamp ID
-					</button>
-				</div>
-				<div class="tdbox change_margin_left">
-					<input type="text" class="id_disabled" value="" id="existedStampIDText" placeholder="Please input ID:"/>
-				</div>
-				<div class="tdbox right_side_button float_right">
-					<button class="clearbutton" type="button" id="clearExistedStampID" >
-						<span class="iconfont">&#xe523;</span> Clear Existed Stamp ID
-					</button>
-				</div>
-				<div class="clearfloat"></div>
-				<div class="seperator_dash"></div>
-				<!--Stamp INFO-->
-				<div>
-					<div class="stamp_img">
-						<img id="siimg" src=""/>
+				<!--insert stamp info-->
+				<div class="panel_bottom_margin panel_top_margin panel_style">
+					<div class="fun_title">ADD STAMP INFO</div>
+					<div>
+						<div class="tdbox left_side_button">
+							<button class="button" type="button" id="addStamp">
+								<span class="iconfont">&#xe531;</span> Add a New Stamp
+							</button>
+						</div>
+						<div class="tdbox change_margin_left">
+							<input type="text" value="" class="id" id="id" placeholder="Please input ID:"/>
+						</div>
+						<div class="tdbox">
+							<strong>- &nbsp;</strong> <input type="text" class="link" value="" id="link" placeholder="Please input stamp link:"/>
+						</div>
+						<div class="tdbox right_side_button float_right">
+							<button class="clearbutton" type="button" id="clearStampInfo">
+								<span class="iconfont">&#xe523;</span> Clear Stamp Info
+							</button>
+						</div>
+						<div class="clearfloat"></div>
 					</div>
-					<div id="stamp_info_no_records" class="stamp_info_no_records">
-						<div>There's no records!</div>
+				</div>
+				<!--Get latest code -->
+				<div class="panel_bottom_margin panel_style">
+					<div class="fun_title">GET LATEST ID</div>
+					<div class="tdbox left_side_button">
+						<button class="button" type="button" id="latestID"/>
+						<span class="iconfont">&#xe7a2;</span> Get latest stamp ID
+						</button>
 					</div>
-					<div class="stamp_info" id="stamp_info">
-						<table>
-							<tr>
-								<td>ID</td>
-								<td><div id="siid"></div></td>
-							</tr>
-							<tr>
-								<td>Country</td>
-								<td><div id="sicountry"></div></td>
-							</tr>
-							<tr>
-								<td>Name</td>
-								<td><div id="siname"></div></td>
-							</tr>
-							<tr>
-								<td>Series</td>
-								<td><div id="siseries"></div></td>
-							</tr>
-							<tr>
-								<td>Themes</td>
-								<td><div id="sithemes"></div></td>
-							</tr>
-						</table>
+					<div class="tdbox change_margin_left">
+						<input type="text" class="id_disabled" value="" id="latestIDText" placeholder="Please input ID:"/>
+					</div>
+					<div class="tdbox right_side_button float_right">
+						<button class="clearbutton" type="button" id="clearLatestID">
+							<span class="iconfont">&#xe523;</span> Clear Latest ID
+						</button>
 					</div>
 					<div class="clearfloat"></div>
 				</div>
+				<!--Check existed stamp by ID-->
+				<div class="panel_bottom_margin panel_style" style="height: 300px;margin-bottom:0;">
+					<div class="fun_title">CHECK EXISTED STAMP BY ID</div>
+					<div class="tdbox left_side_button">
+						<button class="button" type="button" id="existedStampID" >
+							<span class="iconfont">&#xe7a2;</span> Get existed stamp ID
+						</button>
+					</div>
+					<div class="tdbox change_margin_left">
+						<input type="text" class="id_disabled" value="" id="existedStampIDText" placeholder="Please input ID:"/>
+					</div>
+					<div class="tdbox right_side_button float_right">
+						<button class="clearbutton" type="button" id="clearExistedStampID" >
+							<span class="iconfont">&#xe523;</span> Clear Existed Stamp ID
+						</button>
+					</div>
+					<div class="clearfloat"></div>
+					<div class="seperator_dash"></div>
+					<!--Stamp INFO-->
+					<div>
+						<div class="stamp_img">
+							<img id="siimg" src=""/>
+						</div>
+						<div id="stamp_info_no_records" class="stamp_info_no_records">
+							<div>There's no records!</div>
+						</div>
+						<div class="stamp_info" id="stamp_info">
+							<table>
+								<tr>
+									<td>ID</td>
+									<td><div id="siid"></div></td>
+								</tr>
+								<tr>
+									<td>Country</td>
+									<td><div id="sicountry"></div></td>
+								</tr>
+								<tr>
+									<td>Name</td>
+									<td><div id="siname"></div></td>
+								</tr>
+								<tr>
+									<td>Series</td>
+									<td><div id="siseries"></div></td>
+								</tr>
+								<tr>
+									<td>Themes</td>
+									<td><div id="sithemes"></div></td>
+								</tr>
+							</table>
+						</div>
+						<div class="clearfloat"></div>
+					</div>
+				</div>
+			</div>
+			<div class="seperator_div"></div>
+			<div class="stamps_wall">
+
 			</div>
 		</div>
 	</body>
