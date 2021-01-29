@@ -19,71 +19,94 @@ function DBOperation() {
             }
         });
     },
-        this.queryMaxID = function() {
-            let genUrl = "http://localhost:9090/query_max_id";
-            $.ajax({
-                url: genUrl,
-                dataType: "json",
-                method: "GET",
-                success: function(resultData) {
-                    if(resultData.result) {
-                        console.info(resultData);
-                        $("#latestIDText").val(resultData.data.maxID);
-                    } else {
-                        alert("Failed!");
-                    }
-                },
-                error: function(err) {
-                    console.info(err);
+    this.queryMaxID = function() {
+        let genUrl = "http://localhost:9090/query_max_id";
+        $.ajax({
+            url: genUrl,
+            dataType: "json",
+            method: "GET",
+            success: function(resultData) {
+                if(resultData.result) {
+                    console.info(resultData);
+                    $("#latestIDText").val(resultData.data.maxID);
+                } else {
                     alert("Failed!");
                 }
-            });
-        },
-        this.clearText = function(ids) {
-            if(ids == null) {
-                alert("Arguments are empty!");
-                return;
+            },
+            error: function(err) {
+                console.info(err);
+                alert("Failed!");
             }
-            for(var i = 0; i < ids.length; i++) {
-                let id = "#"+ ids[i];
-                $(id).val("");
-            }
-        },
-        this.queryStampByID = function() {
-            if($.trim($("#existedStampIDText").val()) == "") {
-                alert("ID is empty!");
-                return;
-            }
-            let genUrl = "http://localhost:9090/get_stamp_by_id/?";
-            genUrl += ("id="+$.trim($("#existedStampIDText").val()));
-            $.ajax({
-                url: genUrl,
-                dataType: "json",
-                method: "GET",
-                success: function(resultData) {
-                    if(resultData.result) {
-                        imageDataPopulation(resultData);
-                        $("#stamp_info").css("display", "block");
-                        $("#stamp_info_no_records").css("display", "none");
-                    } else {
-                        $("#stamp_info").css("display", "none");
-                        $("#stamp_info_no_records").css("display", "block");
-                        $("#siimg").attr("src","");
-                    }
-                },
-                error: function(err) {
-                    console.info(err);
-                    alert("Failed!");
-                }
-            });
+        });
+    },
+    this.clearText = function(ids) {
+        if(ids == null) {
+            alert("Arguments are empty!");
+            return;
         }
-}
+        for(var i = 0; i < ids.length; i++) {
+            let id = "#"+ ids[i];
+            $(id).val("");
+        }
+    },
+    this.queryStampByID = function() {
+        if($.trim($("#existedStampIDText").val()) == "") {
+            alert("ID is empty!");
+            return;
+        }
+        let genUrl = "http://localhost:9090/get_stamp_by_id/?";
+        genUrl += ("id="+$.trim($("#existedStampIDText").val()));
+        $.ajax({
+            url: genUrl,
+            dataType: "json",
+            method: "GET",
+            success: function(resultData) {
+                if(resultData.result) {
+                    imageDataPopulation(resultData);
+                    $("#stamp_info").css("display", "block");
+                    $("#stamp_info_no_records").css("display", "none");
+                } else {
+                    $("#stamp_info").css("display", "none");
+                    $("#stamp_info_no_records").css("display", "block");
+                    $("#siimg").attr("src","");
+                }
+            },
+            error: function(err) {
+                console.info(err);
+                alert("Failed!");
+            }
+        });
+    },
+    this.setInsertStampID = function() {
+        let countryCode = $("#countryCodeText").val();
+        if(countryCode == undefined || countryCode == null || $.trim(countryCode) == "") {
+            alert("Country Code is empty!")
+            return;
+        }
 
-function imageExists(image_url){
-    var http = new XMLHttpRequest();
-    http.open('HEAD', image_url, false);
-    http.send();
-    return http.status != 404;
+        let genUrl = "http://localhost:9090/get_max_id_num";
+        $.ajax({
+            url: genUrl,
+            dataType: "json",
+            method: "GET",
+            success: function(resultData) {
+                if(resultData.result) {
+                    let generatedID = countryCode + resultData.data.nextID;
+                    $("#id").val(generatedID);
+                    $("#latestIDText").val(generatedID);
+                    $("#existedStampIDText").val(generatedID);
+                } else {
+                    $("#id").val("Error!");
+                    $("#latestIDText").val("");
+                    $("#existedStampIDText").val("");
+                }
+            },
+            error: function(err) {
+                console.info(err);
+                alert("Failed!");
+            }
+        });
+    }
 }
 
 function imageDataPopulation(rd) {
@@ -98,10 +121,18 @@ function imageDataPopulation(rd) {
 
 let dbOperation = new DBOperation();
 window.onload = function() {
+    $('.pagination').jqPagination({
+        link_string: "http://localhost:9090/get_stamps?page={page_number}",
+        current_page: 1,
+        max_page: 40,
+        paged: function(page) {
+            // do something with the page variable
+            console.info(page);
+        }
+    });
+
     $("#countryCode").on("click", function() {
-        $("#id").val($("#countryCodeText").val());
-        $("#latestIDText").val($("#countryCodeText").val());
-        $("#existedStampIDText").val($("#countryCodeText").val());
+        dbOperation.setInsertStampID();
     });
     $("#addStamp").on("click", function() {
         let link = $.trim($("#link").val());

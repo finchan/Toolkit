@@ -75,4 +75,33 @@ class StampsController {
         //Base64 - "data:image/jpg;base64,"
         return resultData;
     }
+
+    @RequestMapping(path="/get_max_id_num", method=RequestMethod.GET)
+    public ResultData setInsertStampIDNum() {
+        ResultData resultData = new ResultData();
+
+        String maxID = stampsService.getMaxIDNum();
+        if (maxID != null) {
+            Map<String, String> data = new HashMap<String, String>();
+            maxID = String.format("%06d", Integer.parseInt(maxID)+1);
+            data.put("nextID", maxID);
+            resultData.setData(data);
+        } else {
+            resultData.setResult(false);
+            resultData.setErrorMessage("Cannot get Next ID");
+        }
+        return resultData;
+    }
+
+    @RequestMapping(path="/get_stamps", method=RequestMethod.GET)
+    public ResultData getStamps (@RequestParam("page_number") String PageNumber){
+
+        //MOCKUP CODE:
+        Map<String, Object> data = new HashMap<>();
+        data.put("current_page", 2);
+        data.put("max_page", 40 );
+        ResultData resultData = new ResultData();
+        resultData.setData(data);
+        return resultData;
+    }
 }

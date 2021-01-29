@@ -189,6 +189,10 @@
     where ID = #{id,jdbcType=VARCHAR}
   </select>
 
+  <select id="getMaxIDNum" resultType="java.lang.String">
+    SELECT MAX(SUBSTR(ID,4,9)) FROM STAMPS
+  </select>
+
 <!--  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">-->
 <!--    &lt;!&ndash;@mbg.generated&ndash;&gt;-->
 <!--    select -->

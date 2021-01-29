@@ -22,4 +22,6 @@ public interface StampsMapper {
     String queryMaxID();
 
     Stamp getStampViaID(String id);
+
+    String getMaxIDNum();
 }

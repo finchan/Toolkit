@@ -5,8 +5,10 @@
 		<script src="jquery.js"></script>
 		<script src="jquery.easy-autocomplete.js"></script>
 		<script src="blowup.js"></script>
+		<script src="jquery.jqpagination.js"></script>
 		<script src="stamp.js"></script>
 		<link href="easy-autocomplete.css" rel="stylesheet" type="text/css" />
+		<link href="jqpagination.css" rel="stylesheet" type="text/css" />
 		<link href="stamp.css" rel="stylesheet" type="text/css" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 	</head>
@@ -18,7 +20,7 @@
 					<div class="fun_title">GET/SET Country Code</div>
 					<div class="tdbox left_side_button">
 						<button class="button" type="button" id="countryCode"/>
-						<span class="iconfont">&#xe7a2;</span> Set Country Code
+						    <span class="iconfont">&#xe7a2;</span> Set Country Code
 						</button>
 					</div>
 					<div class="tdbox change_margin_left">
@@ -128,7 +130,20 @@
 			</div>
 			<div class="seperator_div"></div>
 			<div class="stamps_wall">
+				<!--pagination-->
+				<div class="pagi_panel">
+					<div class="pagination">
+						<a href="#" class="first" data-action="first">&laquo;</a>
+						<a href="#" class="previous" data-action="previous">&lsaquo;</a>
+						<input type="text" readonly="readonly" data-max-page="1" />
+						<a href="#" class="next" data-action="next">&rsaquo;</a>
+						<a href="#" class="last" data-action="last">&raquo;</a>
+					</div>
+				</div>
+				<!--stamps search results-->
+				<div>
 
+				</div>
 			</div>
 		</div>
 	</body>

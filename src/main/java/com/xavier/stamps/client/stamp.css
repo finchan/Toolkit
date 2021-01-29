@@ -46,7 +46,7 @@ html, body{
     width: 120px;
     padding-left: 10px;
     margin-right: 10px;
-    -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 30%,rgba(220,35,50,.5));
+    -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 30%,rgba(220,35,50,.8));
 }
 .clearbutton {
     height:30px;
@@ -67,7 +67,7 @@ html, body{
     height:30px;
     width: 120px;
     padding-left: 10px;
-    -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 30%,rgba(220,35,50,.5));
+    -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 30%,rgba(220,35,50,.8));
 }
 .link{
     border:none;
@@ -234,4 +234,19 @@ html, body{
     background-repeat: repeat;
     background-position: 0% 0%;
     background-attachment: scroll;
+}
+.pagi_panel{
+    float:left;
+    position:relative;
+}
+.pagination{
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg); /* Internet Explorer */
+    -moz-transform:rotate(90deg); /* Firefox */
+    -webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+    -o-transform:rotate(90deg); /* Opera */
+    position:absolute;
+    top: 377px;
+    left: -197px;
+    width: 424px;
 }

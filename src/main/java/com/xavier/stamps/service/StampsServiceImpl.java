@@ -24,4 +24,9 @@ public class StampsServiceImpl implements StampsService {
     public Stamp getStampViaID(String id) {
         return stampsMapper.getStampViaID(id);
     }
+
+    @Override
+    public String getMaxIDNum() {
+        return stampsMapper.getMaxIDNum();
+    }
 }
