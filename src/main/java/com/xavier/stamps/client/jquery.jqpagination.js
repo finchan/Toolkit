@@ -20,6 +20,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+function paginationCallBack(options) {
+	let requestURL = "http://localhost:9090/get_stamps?page_number=" + options.current_page;
+	$.ajax({
+		url: requestURL,
+		dataType: "json",
+		method: "GET",
+		async: false,
+		success: function(resultData) {
+			if(resultData.result) {
+				console.info(resultData);
+				options.current_page = resultData.data.max_page;
+				options.max_page = resultData.data.current_page;
+			} else {
+				console.info(resultData);
+			}
+		},
+		error: function(err) {
+			console.info(err);
+		}
+	});
+}
+
 
 (function ($) {
 	"use strict";
@@ -132,6 +154,7 @@
 				// for mac + windows (read: other), maintain the cmd + ctrl click for new tab
 				if (!event.metaKey && !event.ctrlKey) {
 					event.preventDefault();
+					paginationCallBack(base.options);
 					base.setPage($self.data('action'));
 				}
 

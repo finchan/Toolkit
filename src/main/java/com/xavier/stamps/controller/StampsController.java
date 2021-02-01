@@ -94,7 +94,7 @@ class StampsController {
     }
 
     @RequestMapping(path="/get_stamps", method=RequestMethod.GET)
-    public ResultData getStamps (@RequestParam("page_number") String PageNumber){
+    public ResultData getStamps (@RequestParam("page_number") String pageNumber){
 
         //MOCKUP CODE:
         Map<String, Object> data = new HashMap<>();
