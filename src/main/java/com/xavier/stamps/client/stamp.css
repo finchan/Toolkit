@@ -235,6 +235,12 @@ html, body{
     background-position: 0% 0%;
     background-attachment: scroll;
 }
+.search_panel {
+    border:none;
+    border-bottom: 1px ridge #333333;
+    margin: 0;
+    margin-bottom: 30px;
+}
 .pagi_panel{
     float:left;
     position:relative;
