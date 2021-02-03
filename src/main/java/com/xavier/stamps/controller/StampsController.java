@@ -1,5 +1,6 @@
 package com.xavier.stamps.controller;
 
+import com.xavier.stamps.entity.Pager;
 import com.xavier.stamps.entity.Stamp;
 import com.xavier.stamps.service.StampsService;
 import com.xavier.stamps.utils.ParseHTML;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -94,14 +96,22 @@ class StampsController {
     }
 
     @RequestMapping(path="/get_stamps", method=RequestMethod.GET)
-    public ResultData getStamps (@RequestParam("page_number") String pageNumber){
+    public ResultData getStamps (Pager<List<Stamp>, Stamp> pager){
+        Integer current_page = pager.getPage();
+        //TODO: Add paging logic if ... return null
 
-        //MOCKUP CODE:
-        Map<String, Object> data = new HashMap<>();
-        data.put("current_page", 2);
-        data.put("max_page", 40 );
+        Pager<List<Stamp>, Stamp> pagerResult = stampsService.getStampsByPager(pager);
+
         ResultData resultData = new ResultData();
-        resultData.setData(data);
+        if(pagerResult.getTotal() != null) {
+            Map<String, Object> data = new HashMap<>();
+            data.put("total", pagerResult.getTotal());
+            data.put("searchingResult", pagerResult.getEntities());
+            resultData.setData(data);
+        } else {
+            resultData.setResult(false);
+            resultData.setErrorMessage("Cannot get Next ID");
+        }
         return resultData;
     }
 }

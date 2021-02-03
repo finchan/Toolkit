@@ -1,21 +1,14 @@
 package com.xavier.stamps.mapper;
 
+import com.xavier.stamps.entity.Pager;
 import com.xavier.stamps.entity.Stamp;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface StampsMapper {
 //    int deleteByPrimaryKey(String id);
-//
-//    int insert(Stamp record, String series, String id);
-//
-//    int insertSelective(Stamp record);
-//
-//    Stamp selectByPrimaryKey(String id);
-//
-//    int updateByPrimaryKeySelective(Stamp record);
-//
-//    int updateByPrimaryKey(Stamp record);
 
     void insertStampInfo(Stamp stamp);
 
@@ -24,4 +17,7 @@ public interface StampsMapper {
     Stamp getStampViaID(String id);
 
     String getMaxIDNum();
+
+    List<Stamp> getStampsByPager(Pager<List<Stamp>, Stamp> pager);
+    Integer getStampsCountByPager(Pager<List<Stamp>, Stamp> pager);
 }

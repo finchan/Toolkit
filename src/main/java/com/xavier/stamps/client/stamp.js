@@ -201,4 +201,28 @@ window.onload = function() {
 
     $("#countryCodeText").easyAutocomplete(options);
 
+
+    //Temporary Code, need to refactor
+    let tempURL = "http://localhost:9090/get_stamps";
+    $.ajax({
+        url: tempURL,
+        dataType: "json",
+        data: {
+            page: 0,
+            searchingCriteria: {
+                series: 'Equestrian Seal of King Diniz',
+                country: 'Portugal',
+                themes: 'Animals'
+            }
+        },
+        method: "GET",
+        success: function(resultData) {
+            console.log(resultData);
+        },
+        error: function(err) {
+            console.info(err);
+            alert("Failed!");
+        }
+    });
+
 };

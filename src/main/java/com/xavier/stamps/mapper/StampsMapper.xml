@@ -193,275 +193,46 @@
     SELECT MAX(SUBSTR(ID,4,9)) FROM STAMPS
   </select>
 
-  <select id="getStamps" parameterType="com.xavier.stamps.entity.Stamp" resultMap="BaseResultMap">
+  <select id="getStampsByPager" parameterType="map" resultMap="BaseResultMap">
     SELECT ID, NAME, IMG, COUNTRY, SERIES, THEMES, ISSUEDON
     FROM
     STAMPS
     <where>
       1=1
       <if test="series !=''">
-        AND SERIES LIKE '%'||#{series}||'%'
+        AND SERIES LIKE '%'||#{searchingCriteria.series}||'%'
+      </if>
+      <if test="country !=''">
+        AND COUNTRY = #{searchingCriteria.country}
+      </if>
+      <if test="themes !=''">
+        OR THEMES LIKE '%'||#{searchingCriteria.themes}||'%'
+      </if>
+    </where>
+    LIMIT #{(page-1)*15}, #{size}
+  </select>
+  <select id="getStampsCountByPager" parameterType="map" resultType="int">
+    SELECT COUNT(1)
+    FROM
+    STAMPS
+    <where>
+      1=1
+      <if test="series !=''">
+        AND SERIES LIKE '%'||#{searchingCriteria.series}||'%'
+      </if>
+      <if test="country !=''">
+        AND COUNTRY = #{searchingCriteria.country}
+      </if>
+      <if test="themes !=''">
+        OR THEMES LIKE '%'||#{searchingCriteria.themes}||'%'
       </if>
     </where>
   </select>
 
-
-
-<!--  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">-->
-<!--    &lt;!&ndash;@mbg.generated&ndash;&gt;-->
-<!--    select -->
-<!--    <include refid="Base_Column_List" />-->
-<!--    from STAMPS-->
-<!--    where ID = #{id,jdbcType=VARCHAR}-->
-<!--  </select>-->
 <!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">-->
 <!--    &lt;!&ndash;@mbg.generated&ndash;&gt;-->
 <!--    delete from STAMPS-->
 <!--    where ID = #{id,jdbcType=VARCHAR}-->
 <!--  </delete>-->
-<!--  <insert id="insert" parameterType="com.xavier.stamps.entity.Stamp">-->
-<!--    &lt;!&ndash;@mbg.generated&ndash;&gt;-->
-<!--    insert into STAMPS (ID, "NAME", COUNTRY, -->
-<!--      SERIES, CODES, THEMES, -->
-<!--      ISSUEDON, EXPIRYDATE, DIMENSION, -->
-<!--      COLORS, EMISSION, PERFORATION, -->
-<!--      PRINTING, PAPER, FACEVALUE, -->
-<!--      PRINTRUN, SCORE, LINKS, -->
-<!--      IMG, IMGNAME, COLLECTINGDATE-->
-<!--      )-->
-<!--    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, -->
-<!--      #{series,jdbcType=VARCHAR}, #{codes,jdbcType=VARCHAR}, #{themes,jdbcType=VARCHAR}, -->
-<!--      #{issuedOn,jdbcType=VARCHAR}, #{expiryDate,jdbcType=VARCHAR}, #{dimension,jdbcType=VARCHAR},-->
-<!--      #{colors,jdbcType=VARCHAR}, #{emission,jdbcType=VARCHAR}, #{perforation,jdbcType=VARCHAR}, -->
-<!--      #{printing,jdbcType=VARCHAR}, #{paper,jdbcType=VARCHAR}, #{faceValue,jdbcType=VARCHAR},-->
-<!--      #{printRun,jdbcType=INTEGER}, #{score,jdbcType=VARCHAR}, #{links,jdbcType=VARCHAR},-->
-<!--      #{img,jdbcType=BLOB}, #{imgName,jdbcType=VARCHAR}, #{collectingDate,jdbcType=VARCHAR}-->
-<!--      )-->
-<!--  </insert>-->
-<!--  <insert id="insertSelective" parameterType="com.xavier.stamps.entity.Stamp">-->
-<!--    &lt;!&ndash;@mbg.generated&ndash;&gt;-->
-<!--    insert into STAMPS-->
-<!--    <trim prefix="(" suffix=")" suffixOverrides=",">-->
-<!--      <if test="id != null">-->
-<!--        ID,-->
-<!--      </if>-->
-<!--      <if test="name != null">-->
-<!--        "NAME",-->
-<!--      </if>-->
-<!--      <if test="country != null">-->
-<!--        COUNTRY,-->
-<!--      </if>-->
-<!--      <if test="series != null">-->
-<!--        SERIES,-->
-<!--      </if>-->
-<!--      <if test="codes != null">-->
-<!--        CODES,-->
-<!--      </if>-->
-<!--      <if test="themes != null">-->
-<!--        THEMES,-->
-<!--      </if>-->
-<!--      <if test="issuedOn != null">-->
-<!--        ISSUEDON,-->
-<!--      </if>-->
-<!--      <if test="expiryDate != null">-->
-<!--        EXPIRYDATE,-->
-<!--      </if>-->
-<!--      <if test="dimension != null">-->
-<!--        DIMENSION,-->
-<!--      </if>-->
-<!--      <if test="colors != null">-->
-<!--        COLORS,-->
-<!--      </if>-->
-<!--      <if test="emission != null">-->
-<!--        EMISSION,-->
-<!--      </if>-->
-<!--      <if test="perforation != null">-->
-<!--        PERFORATION,-->
-<!--      </if>-->
-<!--      <if test="printing != null">-->
-<!--        PRINTING,-->
-<!--      </if>-->
-<!--      <if test="paper != null">-->
-<!--        PAPER,-->
-<!--      </if>-->
-<!--      <if test="faceValue != null">-->
-<!--        FACEVALUE,-->
-<!--      </if>-->
-<!--      <if test="printRun != null">-->
-<!--        PRINTRUN,-->
-<!--      </if>-->
-<!--      <if test="score != null">-->
-<!--        SCORE,-->
-<!--      </if>-->
-<!--      <if test="links != null">-->
-<!--        LINKS,-->
-<!--      </if>-->
-<!--      <if test="img != null">-->
-<!--        IMG,-->
-<!--      </if>-->
-<!--      <if test="imgName != null">-->
-<!--        IMGNAME,-->
-<!--      </if>-->
-<!--      <if test="collectingDate != null">-->
-<!--        COLLECTINGDATE,-->
-<!--      </if>-->
-<!--    </trim>-->
-<!--    <trim prefix="values (" suffix=")" suffixOverrides=",">-->
-<!--      <if test="id != null">-->
-<!--        #{id,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="name != null">-->
-<!--        #{name,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="country != null">-->
-<!--        #{country,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="series != null">-->
-<!--        #{series,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="codes != null">-->
-<!--        #{codes,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="themes != null">-->
-<!--        #{themes,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="issuedOn != null">-->
-<!--        #{issuedOn,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="expiryDate != null">-->
-<!--        #{expiryDate,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="dimension != null">-->
-<!--        #{dimension,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="colors != null">-->
-<!--        #{colors,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="emission != null">-->
-<!--        #{emission,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="perforation != null">-->
-<!--        #{perforation,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="printing != null">-->
-<!--        #{printing,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="paper != null">-->
-<!--        #{paper,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="faceValue != null">-->
-<!--        #{faceValue,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="printRun != null">-->
-<!--        #{printRun,jdbcType=INTEGER},-->
-<!--      </if>-->
-<!--      <if test="score != null">-->
-<!--        #{score,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="links != null">-->
-<!--        #{links,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="img != null">-->
-<!--        #{img,jdbcType=BLOB},-->
-<!--      </if>-->
-<!--      <if test="imgName != null">-->
-<!--        #{imgName,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="collectingDate != null">-->
-<!--        #{collectingDate,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--    </trim>-->
-<!--  </insert>-->
-<!--  <update id="updateByPrimaryKeySelective" parameterType="com.xavier.stamps.entity.Stamp">-->
-<!--    &lt;!&ndash;@mbg.generated&ndash;&gt;-->
-<!--    update STAMPS-->
-<!--    <set>-->
-<!--      <if test="name != null">-->
-<!--        "NAME" = #{name,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="country != null">-->
-<!--        COUNTRY = #{country,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="series != null">-->
-<!--        SERIES = #{series,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="codes != null">-->
-<!--        CODES = #{codes,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="themes != null">-->
-<!--        THEMES = #{themes,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="issuedOn != null">-->
-<!--        ISSUEDON = #{issuedOn,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="expiryDate != null">-->
-<!--        EXPIRYDATE = #{expiryDate,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="dimension != null">-->
-<!--        DIMENSION = #{dimension,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="colors != null">-->
-<!--        COLORS = #{colors,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="emission != null">-->
-<!--        EMISSION = #{emission,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="perforation != null">-->
-<!--        PERFORATION = #{perforation,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="printing != null">-->
-<!--        PRINTING = #{printing,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="paper != null">-->
-<!--        PAPER = #{paper,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="faceValue != null">-->
-<!--        FACEVALUE = #{faceValue,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="printRun != null">-->
-<!--        PRINTRUN = #{printRun,jdbcType=INTEGER},-->
-<!--      </if>-->
-<!--      <if test="score != null">-->
-<!--        SCORE = #{score,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="links != null">-->
-<!--        LINKS = #{links,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="img != null">-->
-<!--        IMG = #{img,jdbcType=BLOB},-->
-<!--      </if>-->
-<!--      <if test="imgName != null">-->
-<!--        IMGNAME = #{imgName,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="collectingDate != null">-->
-<!--        COLLECTINGDATE = #{collectingDate,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--    </set>-->
-<!--    where ID = #{id,jdbcType=VARCHAR}-->
-<!--  </update>-->
-<!--  <update id="updateByPrimaryKey" parameterType="com.xavier.stamps.entity.Stamp">-->
-<!--    &lt;!&ndash;@mbg.generated&ndash;&gt;-->
-<!--    update STAMPS-->
-<!--    set "NAME" = #{name,jdbcType=VARCHAR},-->
-<!--      COUNTRY = #{country,jdbcType=VARCHAR},-->
-<!--      SERIES = #{series,jdbcType=VARCHAR},-->
-<!--      CODES = #{codes,jdbcType=VARCHAR},-->
-<!--      THEMES = #{themes,jdbcType=VARCHAR},-->
-<!--      ISSUEDON = #{issuedOn,jdbcType=VARCHAR},-->
-<!--      EXPIRYDATE = #{expiryDate,jdbcType=VARCHAR},-->
-<!--      DIMENSION = #{dimension,jdbcType=VARCHAR},-->
-<!--      COLORS = #{colors,jdbcType=VARCHAR},-->
-<!--      EMISSION = #{emission,jdbcType=VARCHAR},-->
-<!--      PERFORATION = #{perforation,jdbcType=VARCHAR},-->
-<!--      PRINTING = #{printing,jdbcType=VARCHAR},-->
-<!--      PAPER = #{paper,jdbcType=VARCHAR},-->
-<!--      FACEVALUE = #{faceValue,jdbcType=VARCHAR},-->
-<!--      PRINTRUN = #{printRun,jdbcType=INTEGER},-->
-<!--      SCORE = #{score,jdbcType=VARCHAR},-->
-<!--      LINKS = #{links,jdbcType=VARCHAR},-->
-<!--      IMG = #{img,jdbcType=BLOB},-->
-<!--      IMGNAME = #{imgName,jdbcType=VARCHAR},-->
-<!--      COLLECTINGDATE = #{collectingDate,jdbcType=VARCHAR}-->
-<!--    where ID = #{id,jdbcType=VARCHAR}-->
-  <!--  </update>-->
+
 </mapper>
