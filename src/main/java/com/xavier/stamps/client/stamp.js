@@ -121,29 +121,11 @@ function imageDataPopulation(rd) {
 
 let dbOperation = new DBOperation();
 
-// function paginationCallBack() {
-//     $.ajax({
-//         url: "http://localhost:9090/get_stamps?page_number=4",
-//         dataType: "json",
-//         method: "GET",
-//         success: function(resultData) {
-//             if(resultData.result) {
-//                 console.info(resultData);
-//             } else {
-//                 console.info(resultData);
-//             }
-//         },
-//         error: function(err) {
-//             console.info(err);
-//         }
-//     });
-// }
 window.onload = function() {
     let pagination = $('.pagination').jqPagination({
-        // link_string: "http://localhost:9090/get_stamps?page_number={page_number}",
-        link_string: "http://localhost:9090/get_stamps?page_number=",
+        // link_string: "http://localhost:9090/get_stamps?page_number=",
         current_page: 1,
-        max_page: 2
+        max_page: 1
     });
 
 

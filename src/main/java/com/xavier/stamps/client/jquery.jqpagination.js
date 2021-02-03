@@ -30,8 +30,8 @@ function paginationCallBack(options) {
 		success: function(resultData) {
 			if(resultData.result) {
 				console.info(resultData);
-				options.current_page = resultData.data.max_page;
-				options.max_page = resultData.data.current_page;
+				options.current_page = resultData.data.current_page;
+				options.max_page = resultData.data.max_page;
 			} else {
 				console.info(resultData);
 			}

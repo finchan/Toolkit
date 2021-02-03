@@ -193,6 +193,20 @@
     SELECT MAX(SUBSTR(ID,4,9)) FROM STAMPS
   </select>
 
+  <select id="getStamps" parameterType="com.xavier.stamps.entity.Stamp" resultMap="BaseResultMap">
+    SELECT ID, NAME, IMG, COUNTRY, SERIES, THEMES, ISSUEDON
+    FROM
+    STAMPS
+    <where>
+      1=1
+      <if test="series !=''">
+        AND SERIES LIKE '%'||#{series}||'%'
+      </if>
+    </where>
+  </select>
+
+
+
 <!--  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">-->
 <!--    &lt;!&ndash;@mbg.generated&ndash;&gt;-->
 <!--    select -->
