@@ -1,5 +1,8 @@
 package com.xavier.stamps.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.xavier.stamps.entity.Pager;
 import com.xavier.stamps.entity.Stamp;
 import com.xavier.stamps.service.StampsService;
@@ -7,10 +10,7 @@ import com.xavier.stamps.utils.ParseHTML;
 import com.xavier.stamps.utils.StringUtil;
 import com.xavier.stamps.vo.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -95,19 +95,21 @@ class StampsController {
         return resultData;
     }
 
-    @RequestMapping(path="/get_stamps", method=RequestMethod.GET)
-    public ResultData getStamps (Pager<List<Stamp>, Stamp> pager){
-        Integer current_page = pager.getPage();
+    @RequestMapping(path="/get_stamps", method=RequestMethod.POST)
+    public ResultData getStamps (@RequestBody JSONObject data){
         //TODO: Add paging logic if ... return null
+
+        Pager pager = JSON.parseObject(data.toJSONString(), new TypeReference<Pager<List<Stamp>, Stamp>>(){});
+        Integer current_page = pager.getPage();
 
         Pager<List<Stamp>, Stamp> pagerResult = stampsService.getStampsByPager(pager);
 
         ResultData resultData = new ResultData();
         if(pagerResult.getTotal() != null) {
-            Map<String, Object> data = new HashMap<>();
-            data.put("total", pagerResult.getTotal());
-            data.put("searchingResult", pagerResult.getEntities());
-            resultData.setData(data);
+            Map<String, Object> data1 = new HashMap<>();
+            data1.put("total", pagerResult.getTotal());
+            data1.put("searchingResult", pagerResult.getEntities());
+            resultData.setData(data1);
         } else {
             resultData.setResult(false);
             resultData.setErrorMessage("Cannot get Next ID");

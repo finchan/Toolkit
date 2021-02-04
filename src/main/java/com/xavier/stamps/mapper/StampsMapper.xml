@@ -199,17 +199,17 @@
     STAMPS
     <where>
       1=1
-      <if test="series !=''">
+      <if test="searchingCriteria.series !=''">
         AND SERIES LIKE '%'||#{searchingCriteria.series}||'%'
       </if>
-      <if test="country !=''">
+      <if test="searchingCriteria.country !=''">
         AND COUNTRY = #{searchingCriteria.country}
       </if>
-      <if test="themes !=''">
+      <if test="searchingCriteria.themes !=''">
         OR THEMES LIKE '%'||#{searchingCriteria.themes}||'%'
       </if>
     </where>
-    LIMIT #{(page-1)*15}, #{size}
+    LIMIT (#{page}-1)*15, #{size}
   </select>
   <select id="getStampsCountByPager" parameterType="map" resultType="int">
     SELECT COUNT(1)
@@ -217,13 +217,13 @@
     STAMPS
     <where>
       1=1
-      <if test="series !=''">
+      <if test="searchingCriteria.series !=''">
         AND SERIES LIKE '%'||#{searchingCriteria.series}||'%'
       </if>
-      <if test="country !=''">
+      <if test="searchingCriteria.country !=''">
         AND COUNTRY = #{searchingCriteria.country}
       </if>
-      <if test="themes !=''">
+      <if test="searchingCriteria.themes !=''">
         OR THEMES LIKE '%'||#{searchingCriteria.themes}||'%'
       </if>
     </where>

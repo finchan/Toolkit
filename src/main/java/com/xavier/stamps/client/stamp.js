@@ -204,25 +204,38 @@ window.onload = function() {
 
     //Temporary Code, need to refactor
     let tempURL = "http://localhost:9090/get_stamps";
+    let data = {
+        "page": 0,
+        "searchingCriteria": {
+            "series": "Equestrian Seal of King Diniz",
+            "country": "Portugal",
+            "themes": "Animals"
+        }
+    };
     $.ajax({
         url: tempURL,
         dataType: "json",
-        data: {
-            page: 0,
-            searchingCriteria: {
-                series: 'Equestrian Seal of King Diniz',
-                country: 'Portugal',
-                themes: 'Animals'
-            }
-        },
-        method: "GET",
+        contentType: "application/json",
+        data: JSON.stringify(data),
+        method: "POST",
         success: function(resultData) {
-            console.log(resultData);
+            generateImagesWall(resultData);
         },
         error: function(err) {
             console.info(err);
             alert("Failed!");
         }
     });
+
+    function generateImagesWall(resultData) {
+        let $ul = $(".square-inner");
+        $ul.empty();
+        if(resultData.data.total && resultData.data.total > 0) {
+            let stamps = resultData.data.searchingResult;
+            for(let i=0; i< stamps.length; i++) {
+                $ul.add("<li class='grid_item'><img src='data:image/jpeg;base64,"+ stamps[i].img +"'/></li>");
+            }
+        }
+    }
 
 };
