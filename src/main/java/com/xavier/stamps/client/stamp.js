@@ -123,10 +123,11 @@ let dbOperation = new DBOperation();
 
 window.onload = function() {
     let pagination = $('.pagination').jqPagination({
-        // link_string: "http://localhost:9090/get_stamps?page_number=",
         current_page: 1,
         max_page: 1
     });
+    debugger;
+    console.info("-------");
 
 
     $("#countryCode").on("click", function() {
@@ -201,7 +202,6 @@ window.onload = function() {
 
     $("#countryCodeText").easyAutocomplete(options);
 
-
     //Temporary Code, need to refactor
     let tempURL = "http://localhost:9090/get_stamps";
     let data = {
@@ -219,6 +219,7 @@ window.onload = function() {
         data: JSON.stringify(data),
         method: "POST",
         success: function(resultData) {
+            manipulatePaginationBar(resultData);
             generateImagesWall(resultData);
         },
         error: function(err) {
@@ -227,13 +228,26 @@ window.onload = function() {
         }
     });
 
+    function manipulatePaginationBar(resultData) {
+        let pagi = $('.pagination').jqPagination({
+            trigger:false,
+            max_page: resultData.data.pages
+        });
+
+        // $('.pagination').jqPagination('destroy');
+    }
+
     function generateImagesWall(resultData) {
         let $ul = $(".square-inner");
         $ul.empty();
         if(resultData.data.total && resultData.data.total > 0) {
             let stamps = resultData.data.searchingResult;
             for(let i=0; i< stamps.length; i++) {
-                $ul.add("<li class='grid_item'><img src='data:image/jpeg;base64,"+ stamps[i].img +"'/></li>");
+                $ul.append("<li class='grid_item'><img src='data:image/jpeg;base64,"+ stamps[i].img +"'/></li>");
+            }
+            let imges = $(".square-inner li img")
+            for(let i=0; i< imges.length; i++) {
+                $(imges[i]).blowup();
             }
         }
     }

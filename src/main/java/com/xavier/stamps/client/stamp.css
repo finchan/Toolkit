@@ -271,3 +271,7 @@ html, body{
     text-align:center;
     list-style: none;
 }
+.grid_item img {
+    max-height: 117px;
+    max-width: 231px;
+}

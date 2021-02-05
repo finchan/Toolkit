@@ -20,21 +20,34 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+
 function paginationCallBack(options) {
-	let requestURL = "http://localhost:9090/get_stamps?page_number=" + options.current_page;
+	let requestURL = "http://localhost:9090/get_stamps";
+	let data = {
+		"page": options.current_page,
+		"searchingCriteria": {
+			"series": "Equestrian Seal of King Diniz",
+			"country": "Portugal",
+			"themes": "Animals"
+		}
+	};
 	$.ajax({
 		url: requestURL,
 		dataType: "json",
-		method: "GET",
+		contentType: "application/json",
+		data: JSON.stringify(data),
+		method: "POST",
 		async: false,
 		success: function(resultData) {
-			if(resultData.result) {
-				console.info(resultData);
-				options.current_page = resultData.data.current_page;
-				options.max_page = resultData.data.max_page;
-			} else {
-				console.info(resultData);
-			}
+			manipulatePaginationBar(resultData);
+			generateImagesWall(resultData);
+			// if(resultData.result) {
+			// 	console.info(resultData);
+			// 	options.current_page = resultData.data.current_page;
+			// 	options.max_page = resultData.data.max_page;
+			// } else {
+			// 	console.info(resultData);
+			// }
 		},
 		error: function(err) {
 			console.info(err);
@@ -52,7 +65,7 @@ function paginationCallBack(options) {
 		// to reference this class from internal events and functions.
 
 		var base = this;
-
+		debugger;
 		// Access to jQuery and DOM versions of element
 		base.$el = $(el);
 		base.el = el;
@@ -154,7 +167,9 @@ function paginationCallBack(options) {
 				// for mac + windows (read: other), maintain the cmd + ctrl click for new tab
 				if (!event.metaKey && !event.ctrlKey) {
 					event.preventDefault();
-					paginationCallBack(base.options);
+					//TODO: Delete this part later, Event should not be injected here.
+					// paginationCallBack(base.options);
+					console.info(base);
 					base.setPage($self.data('action'));
 				}
 

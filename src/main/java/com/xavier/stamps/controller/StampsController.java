@@ -108,6 +108,8 @@ class StampsController {
         if(pagerResult.getTotal() != null) {
             Map<String, Object> data1 = new HashMap<>();
             data1.put("total", pagerResult.getTotal());
+            data1.put("size", pagerResult.getSize());
+            data1.put("pages", new Double(Math.ceil(pagerResult.getTotal()/pagerResult.getSize())).intValue());
             data1.put("searchingResult", pagerResult.getEntities());
             resultData.setData(data1);
         } else {
