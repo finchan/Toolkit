@@ -20,4 +20,6 @@ public interface StampsMapper {
 
     List<Stamp> getStampsByPager(Pager<List<Stamp>, Stamp> pager);
     Integer getStampsCountByPager(Pager<List<Stamp>, Stamp> pager);
+
+    void deleteStamp(String id);
 }

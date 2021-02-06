@@ -78,6 +78,22 @@ class StampsController {
         return resultData;
     }
 
+    @RequestMapping(path="/delete_stamp", method= RequestMethod.GET)
+    public ResultData deteleStamp(@RequestParam("id") String id){
+        ResultData resultData = new ResultData();
+        if(StringUtil.emptyString(id)){
+            resultData.setResult(false);
+            resultData.setErrorMessage("Deleted ID is null");
+            return resultData;
+        }
+
+        stampsService.deteleStamp(id);
+
+        resultData.setResult(true);
+
+        return resultData;
+    }
+
     @RequestMapping(path="/get_max_id_num", method=RequestMethod.GET)
     public ResultData setInsertStampIDNum() {
         ResultData resultData = new ResultData();
@@ -109,7 +125,11 @@ class StampsController {
             Map<String, Object> data1 = new HashMap<>();
             data1.put("total", pagerResult.getTotal());
             data1.put("size", pagerResult.getSize());
-            data1.put("pages", new Double(Math.ceil(pagerResult.getTotal()/pagerResult.getSize())).intValue());
+            if (pagerResult.getTotal() == 0) {
+                data1.put("pages", "1");
+            }else {
+                data1.put("pages", new Double(Math.ceil(pagerResult.getTotal()/pagerResult.getSize())).intValue());
+            }
             data1.put("searchingResult", pagerResult.getEntities());
             resultData.setData(data1);
         } else {

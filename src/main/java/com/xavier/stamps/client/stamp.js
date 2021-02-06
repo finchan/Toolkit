@@ -39,6 +39,30 @@ function DBOperation() {
             }
         });
     },
+    this.deleteStampByID = function() {
+        if($.trim($("#deletedStampID").val()) == "") {
+            alert("ID is empty!");
+            return;
+        }
+        let genUrl = "http://localhost:9090/delete_stamp/?id=";
+        $.ajax({
+            url: genUrl+$.trim($("#deletedStampID").val()),
+            dataType: "json",
+            method: "GET",
+            success: function(resultData) {
+                if(resultData.result) {
+                    console.info(resultData);
+                    alert("Delete successfully!");
+                } else {
+                    alert("Failed!");
+                }
+            },
+            error: function(err) {
+                console.info(err);
+                alert("Failed!");
+            }
+        });
+    },
     this.clearText = function(ids) {
         if(ids == null) {
             alert("Arguments are empty!");
@@ -121,15 +145,16 @@ function imageDataPopulation(rd) {
 
 let dbOperation = new DBOperation();
 
-window.onload = function() {
-    let pagination = $('.pagination').jqPagination({
-        current_page: 1,
-        max_page: 1
-    });
-    debugger;
-    console.info("-------");
+function init() {
+    //page events register
+    pageEventsRegistered();
+    //country code auto complete
+    countryCodeAutoCompleted();
+    //Initialize Pagination
+    reconstructPaginationBar();
+}
 
-
+function pageEventsRegistered() {
     $("#countryCode").on("click", function() {
         dbOperation.setInsertStampID();
     });
@@ -149,10 +174,10 @@ window.onload = function() {
         dbOperation.clearText(["id", "link"]);
     });
     $("#clearLatestID").on("click", function() {
-        dbOperation.clearText(["latestIDText"]);
+        dbOperation.clearText(["latestIDText","deletedStampID"]);
     });
     $("#clearCountryCode").on("click", function() {
-       dbOperation.clearText(["countryCodeText"]);
+        dbOperation.clearText(["countryCodeText"]);
     });
     $("#clearExistedStampID").on("click", function() {
         dbOperation.clearText(["existedStampIDText"]);
@@ -167,6 +192,30 @@ window.onload = function() {
     });
     $("#siimg").blowup();
 
+    $('#searchStamps').on('click', function() {
+        let series = $('#series').val();
+        let country = $('#country').val();
+        let theme = $('#theme').val();
+        if(!(series || country || theme)) {
+            alert("All these searching fields are empty!!!")
+            return;
+        }
+        paginationImageWallLoaded(1, false);
+    });
+
+    $("#deleteStampBtn").on('click', function(){
+        dbOperation.deleteStampByID();
+    });
+
+    $('#clearStampsWallBtn').on('click', function() {
+        dbOperation.clearText(["series", "country", "theme"]);
+        reconstructPaginationBar();
+        $(".square-inner").css("display", "none");
+        $('.milky').css("display", "none");
+    });
+}
+
+function countryCodeAutoCompleted() {
     let options = {
         data: countries,
         dataType: "json",
@@ -199,17 +248,65 @@ window.onload = function() {
         }
 
     };
-
     $("#countryCodeText").easyAutocomplete(options);
+}
 
-    //Temporary Code, need to refactor
+function reconstructPaginationBar() {
+    $('.pagination').jqPagination({
+        // trigger:false,
+        current_page: 1,
+        max_page: 1,
+        link_string:"",
+        paged: function() {
+
+        }
+    });
+}
+
+function constructPaginationBar(maxPages) {
+    $('.pagination').jqPagination({
+        // trigger:false,
+        max_page: maxPages,
+        paged: function () {
+            paginationImageWallLoaded(this.current_page, true);
+        }
+    });
+}
+
+function generateImagesWall(resultData) {
+    let $ul = $(".square-inner");
+    $ul.empty();
+    if(resultData.data.total && resultData.data.total > 0) {
+        let stamps = resultData.data.searchingResult;
+        for(let i=0; i< stamps.length; i++) {
+            $ul.append("<li class='grid_item'><div>"+ stamps[i].id +"</div><img src='data:image/jpeg;base64,"+ stamps[i].img +"'/></li>");
+        }
+        let imges = $(".square-inner li img");
+        imges.each(function(){
+            $(this).blowup();
+        });
+        $('.milky').css("display", "none");
+        $(".square-inner").css("display", "grid" );
+    } else {
+        $(".square-inner").css("display", "none");
+        $('.milky').css("display", "block");
+    }
+    //DOESN'T SUPPORT FOR THE IMAGE HEIGHT/WIDTH FOR data:image/jpeg;base64,
+    // $(".square-inner li img").each(function(){
+    //     let imgHeight = $(this).height();
+    //     console.info(imgHeight);
+    //    $(this).css("margin-top", ( (imgHeight< 117) ? (117-imgHeight)/2 : 0) );
+    // });
+}
+
+function paginationImageWallLoaded(currentPage, skippedPagination){
     let tempURL = "http://localhost:9090/get_stamps";
     let data = {
-        "page": 0,
+        "page": currentPage,
         "searchingCriteria": {
-            "series": "Equestrian Seal of King Diniz",
-            "country": "Portugal",
-            "themes": "Animals"
+            "series": $('#series').val(),
+            "country": $('#country').val(),
+            "themes": $('#theme').val()
         }
     };
     $.ajax({
@@ -219,7 +316,9 @@ window.onload = function() {
         data: JSON.stringify(data),
         method: "POST",
         success: function(resultData) {
-            manipulatePaginationBar(resultData);
+            if(!skippedPagination){
+                constructPaginationBar(resultData.data.pages);
+            }
             generateImagesWall(resultData);
         },
         error: function(err) {
@@ -227,29 +326,8 @@ window.onload = function() {
             alert("Failed!");
         }
     });
+}
 
-    function manipulatePaginationBar(resultData) {
-        let pagi = $('.pagination').jqPagination({
-            trigger:false,
-            max_page: resultData.data.pages
-        });
-
-        // $('.pagination').jqPagination('destroy');
-    }
-
-    function generateImagesWall(resultData) {
-        let $ul = $(".square-inner");
-        $ul.empty();
-        if(resultData.data.total && resultData.data.total > 0) {
-            let stamps = resultData.data.searchingResult;
-            for(let i=0; i< stamps.length; i++) {
-                $ul.append("<li class='grid_item'><img src='data:image/jpeg;base64,"+ stamps[i].img +"'/></li>");
-            }
-            let imges = $(".square-inner li img")
-            for(let i=0; i< imges.length; i++) {
-                $(imges[i]).blowup();
-            }
-        }
-    }
-
+window.onload = function() {
+    init();
 };

@@ -15,4 +15,6 @@ public interface StampsService {
     String getMaxIDNum();
 
     Pager<List<Stamp>, Stamp> getStampsByPager(Pager<List<Stamp>, Stamp> pager);
+
+    void deteleStamp(String id);
 }

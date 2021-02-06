@@ -45,4 +45,9 @@ public class StampsServiceImpl implements StampsService {
         pager.setEntities(stampList);
         return pager;
     }
+
+    @Override
+    public void deteleStamp(String id) {
+        stampsMapper.deleteStamp(id);
+    }
 }

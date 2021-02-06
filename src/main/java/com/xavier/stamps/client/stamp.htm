@@ -56,21 +56,39 @@
 						<div class="clearfloat"></div>
 					</div>
 				</div>
-				<!--Get latest code -->
+				<!--Get latest code & Delete Stamp By ID-->
 				<div class="panel_bottom_margin panel_style">
-					<div class="fun_title">GET LATEST ID</div>
-					<div class="tdbox left_side_button">
-						<button class="button" type="button" id="latestID"/>
-						<span class="iconfont">&#xe7a2;</span> Get latest stamp ID
-						</button>
+					<div style="float:left;">
+						<div class="fun_title">GET LATEST ID</div>
+						<div class="tdbox left_side_button">
+							<button class="button" type="button" id="latestID"/>
+							<span class="iconfont">&#xe7a2;</span> Get latest stamp ID
+							</button>
+						</div>
+						<div class="tdbox change_margin_left">
+							<input type="text" class="id_disabled" value="" id="latestIDText" placeholder="Please input ID:"/>
+						</div>
 					</div>
-					<div class="tdbox change_margin_left">
-						<input type="text" class="id_disabled" value="" id="latestIDText" placeholder="Please input ID:"/>
+					<!--Delete Stamp By ID-->
+					<div style="float:left;width:282px;">
+						<div class="fun_title" style="margin-left:147px;">DELETE STAMP</div>
+						<div class="tdbox left_side_button" style="margin-left:30px;width:120px;">
+							<button class="button" type="button" id="deleteStampBtn" style="color:#ffffff;background-color:#45606f;">
+							<span class="iconfont" style="color:#f62a66">&#xe602;</span> Delete Stamp
+							</button>
+						</div>
+						<div class="tdbox change_margin_left" style="float:left;">
+							<input type="text" class="id_disabled" value="" id="deletedStampID" placeholder="Delete Stamp ID:"/>
+						</div>
 					</div>
-					<div class="tdbox right_side_button float_right">
-						<button class="clearbutton" type="button" id="clearLatestID">
-							<span class="iconfont">&#xe523;</span> Clear Latest ID
-						</button>
+
+					<!--Clear input message-->
+					<div>
+						<div class="tdbox right_side_button float_right">
+							<button class="clearbutton" type="button" id="clearLatestID" style="margin-top:60px;">
+								<span class="iconfont">&#xe523;</span> Clear IDs
+							</button>
+						</div>
 					</div>
 					<div class="clearfloat"></div>
 				</div>
@@ -135,7 +153,8 @@
 					<div class="pagination">
 						<a href="#" class="first" data-action="first">&laquo;</a>
 						<a href="#" class="previous" data-action="previous">&lsaquo;</a>
-						<input type="text" readonly="readonly" data-max-page="1" />
+<!--						<input type="text" readonly="readonly" data-max-page="1" />-->
+						<input type="text" readonly="readonly"/>
 						<a href="#" class="next" data-action="next">&rsaquo;</a>
 						<a href="#" class="last" data-action="last">&raquo;</a>
 					</div>
@@ -171,22 +190,11 @@
 				</div>
 				<!--Stamps images-->
 				<div class="square">
+					<div class="milky" style="display:none;">
+						<br/>No Stamps <br/>Matched!!!<br/><br/>
+					</div>
 					<ul class="square-inner">
-						<li class="grid_item">1</li>
-						<li class="grid_item">2</li>
-						<li class="grid_item">3</li>
-						<li class="grid_item">4</li>
-						<li class="grid_item">5</li>
-						<li class="grid_item">6</li>
-						<li class="grid_item">7</li>
-						<li class="grid_item">8</li>
-						<li class="grid_item">9</li>
-						<li class="grid_item">10</li>
-						<li class="grid_item">11</li>
-						<li class="grid_item">12</li>
-						<li class="grid_item">13</li>
-						<li class="grid_item">14</li>
-						<li class="grid_item">15</li>
+<!--						<li class="grid_item"></li>-->
 					</ul>
 				</div>
 			</div>

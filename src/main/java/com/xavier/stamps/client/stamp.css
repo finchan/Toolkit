@@ -265,13 +265,50 @@ html, body{
     grid-template-columns: repeat(3,233px);
     grid-row-gap: 5px;
     grid-column-gap: 5px;
+    display:none;
 }
 .grid_item {
     border: 1px ridge #333333;
     text-align:center;
     list-style: none;
 }
+/*.grid_item img {*/
+/*    max-height: 117px;*/
+/*    max-width: 231px;*/
+/*}*/
 .grid_item img {
     max-height: 117px;
-    max-width: 231px;
+    max-width: 211px;
+    clear:both;
+}
+.grid_item div {
+    width: 20px;
+    height: 119px;
+    float: left;
+    line-height: 20px;
+    overflow: hidden;
+    text-align: center;
+    color:rgba(255, 90, 90, 0.8);
+    writing-mode: vertical-rl;
+}
+
+/***********************
+END
+ */
+.milky {
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;;
+    text-transform: uppercase;
+    display: block;
+    font-size: 92px;
+    color: rgba(255, 90, 90, 0.6);
+    text-shadow: 0 8px 9px #000000, 0px -2px 1px #fff3f3;
+    font-weight: bold;
+    letter-spacing: -4px;
+    text-align: center;
+    vertical-align: middle;
+    height:635px;
+    line-height: 159px;
+    width: 755px;
+    margin-top:-30px;
+    border-radius: 20px;
 }

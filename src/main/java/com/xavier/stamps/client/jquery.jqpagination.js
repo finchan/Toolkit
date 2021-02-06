@@ -20,42 +20,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
-function paginationCallBack(options) {
-	let requestURL = "http://localhost:9090/get_stamps";
-	let data = {
-		"page": options.current_page,
-		"searchingCriteria": {
-			"series": "Equestrian Seal of King Diniz",
-			"country": "Portugal",
-			"themes": "Animals"
-		}
-	};
-	$.ajax({
-		url: requestURL,
-		dataType: "json",
-		contentType: "application/json",
-		data: JSON.stringify(data),
-		method: "POST",
-		async: false,
-		success: function(resultData) {
-			manipulatePaginationBar(resultData);
-			generateImagesWall(resultData);
-			// if(resultData.result) {
-			// 	console.info(resultData);
-			// 	options.current_page = resultData.data.current_page;
-			// 	options.max_page = resultData.data.max_page;
-			// } else {
-			// 	console.info(resultData);
-			// }
-		},
-		error: function(err) {
-			console.info(err);
-		}
-	});
-}
-
-
 (function ($) {
 	"use strict";
 
@@ -65,7 +29,6 @@ function paginationCallBack(options) {
 		// to reference this class from internal events and functions.
 
 		var base = this;
-		debugger;
 		// Access to jQuery and DOM versions of element
 		base.$el = $(el);
 		base.el = el;
@@ -154,7 +117,6 @@ function paginationCallBack(options) {
 			});
 
 			base.$el.on('click.jqPagination', 'a', function (event) {
-
 				var $self = $(this);
 
 				// we don't want to do anything if we've clicked a disabled link
@@ -167,9 +129,6 @@ function paginationCallBack(options) {
 				// for mac + windows (read: other), maintain the cmd + ctrl click for new tab
 				if (!event.metaKey && !event.ctrlKey) {
 					event.preventDefault();
-					//TODO: Delete this part later, Event should not be injected here.
-					// paginationCallBack(base.options);
-					console.info(base);
 					base.setPage($self.data('action'));
 				}
 
@@ -234,7 +193,6 @@ function paginationCallBack(options) {
 		};
 
 		base.setMaxPage = function (max_page, prevent_paged) {
-
 			// return the max_page value if getting instead of setting
 			if (max_page === undefined) {
 				return base.options.max_page;

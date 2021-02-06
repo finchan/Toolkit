@@ -229,10 +229,9 @@
     </where>
   </select>
 
-<!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">-->
-<!--    &lt;!&ndash;@mbg.generated&ndash;&gt;-->
-<!--    delete from STAMPS-->
-<!--    where ID = #{id,jdbcType=VARCHAR}-->
-<!--  </delete>-->
+  <delete id="deleteStamp" parameterType="java.lang.String">
+    delete from STAMPS
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
 
 </mapper>
