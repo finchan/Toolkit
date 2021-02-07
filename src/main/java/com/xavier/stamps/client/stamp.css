@@ -28,10 +28,13 @@ html, body{
 }
 .button {
     height:30px;
-    background-color:#1ABC9C;
+    background-color:#31B4B4;
     color:#FFFFFF;
-    border:none;
+    border: 1px ridge #334755;
     border-radius:30px;
+}
+.button span{
+    color:#BED91C;
 }
 .id{
     border:none;
@@ -292,9 +295,6 @@ html, body{
     writing-mode: vertical-rl;
 }
 
-/***********************
-END
- */
 .milky {
     font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;;
     text-transform: uppercase;
@@ -311,4 +311,29 @@ END
     width: 755px;
     margin-top:-30px;
     border-radius: 20px;
+}
+
+.delete_button{
+    background-color:#f7d708;
+    color: #000000;
+}
+
+.delete_button span{
+    color:#EB2020;
+}
+
+input[type=text]{
+    color:#1abc9c;
+}
+
+.pagination input[type=text]{
+    color: #000000;
+    font-weight: bold;
+}
+
+.red_dot {
+    /*background-image: url(bg.png);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: left top;*/
+    /*background-size: 20px 20px;*/
 }
