@@ -1,6 +1,8 @@
 function DBOperation() {
     this.insertSingleStamp = function(link, id) {
         let genUrl = "http://localhost:9090/insert_stamp?" + "link=" + link+"&id="+id;
+        $('#insertStatus').html('');
+        $('#insertStatus').attr('class', 'insertNone');
         $.ajax({
             url: genUrl,
             dataType: "json",
@@ -8,14 +10,17 @@ function DBOperation() {
             success: function(resultData) {
                 if(resultData.result) {
                     console.info(resultData);
-                    alert("Done!")
+                    $('#insertStatus').attr('class', 'insertSuccessfully');
+                    $('#insertStatus').html('SUCCEED!');
                 } else {
-                    alert("Failed!");
+                    $('#insertStatus').attr('class', 'insertFailed');
+                    $('#insertStatus').html('FAILED!');
                 }
             },
             error: function(err) {
                 console.info(err);
-                alert("Failed!");
+                $('#insertStatus').attr('class', 'insertFailed');
+                $('#insertStatus').html('FAILED!');
             }
         });
     },

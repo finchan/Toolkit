@@ -337,3 +337,16 @@ input[type=text]{
     /*background-position: left top;*/
     /*background-size: 20px 20px;*/
 }
+.insertSuccessfully{
+    color: #43ff23;float:right;
+    margin-right:300px;
+}
+.insertFailed{
+    color: #ff3357;float:right;
+    margin-right:300px;
+}
+.insertNone{
+    color:transparent;
+    float:right;
+    margin-right:300px;
+}
