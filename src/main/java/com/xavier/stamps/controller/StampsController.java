@@ -128,7 +128,7 @@ class StampsController {
             if (pagerResult.getTotal() == 0) {
                 data1.put("pages", "1");
             }else {
-                data1.put("pages", new Double(Math.ceil(pagerResult.getTotal()/pagerResult.getSize())).intValue());
+                data1.put("pages", new Double(Math.ceil(new Double(pagerResult.getTotal())/new Double(pagerResult.getSize()))).intValue());
             }
             data1.put("searchingResult", pagerResult.getEntities());
             resultData.setData(data1);
