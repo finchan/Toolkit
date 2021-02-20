@@ -256,8 +256,16 @@ html, body{
     -o-transform:rotate(90deg); /* Opera */
     position:absolute;
     /*top: 377px;*/top:455px;
-    left: -197px;
-    width: 424px;
+    /*left: -197px;*/
+    left: -167px;
+    /*width: 424px;*/
+    width: 364px;
+}
+a.first{
+    display:none;
+}
+a.last{
+    display:none;
 }
 .square{
     margin-top:-20px;
